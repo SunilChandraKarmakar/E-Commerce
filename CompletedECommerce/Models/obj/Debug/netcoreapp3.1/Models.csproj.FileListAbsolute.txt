@@ -1,0 +1,9 @@
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\Models\bin\Debug\netcoreapp3.1\Models.deps.json
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\Models\bin\Debug\netcoreapp3.1\Models.dll
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\Models\bin\Debug\netcoreapp3.1\Models.pdb
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\Models\obj\Debug\netcoreapp3.1\Models.csprojAssemblyReference.cache
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\Models\obj\Debug\netcoreapp3.1\Models.csproj.CoreCompileInputs.cache
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfoInputs.cache
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfo.cs
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\Models\obj\Debug\netcoreapp3.1\Models.dll
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\Models\obj\Debug\netcoreapp3.1\Models.pdb
