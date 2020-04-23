@@ -7,6 +7,9 @@ F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECom
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\bin\Debug\netcoreapp3.1\Models.pdb
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.csproj.CopyComplete
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.pdb
-F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.csproj.CoreCompileInputs.cache
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.dll
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.pdb
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.runtimeconfig.json
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.runtimeconfig.dev.json
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.genruntimeconfig.cache
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.csproj.CoreCompileInputs.cache

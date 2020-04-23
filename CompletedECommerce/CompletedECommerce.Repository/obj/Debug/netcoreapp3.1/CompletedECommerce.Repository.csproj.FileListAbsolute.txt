@@ -1,0 +1,8 @@
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\bin\Debug\netcoreapp3.1\CompletedECommerce.Repository.deps.json
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\bin\Debug\netcoreapp3.1\CompletedECommerce.Repository.dll
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\bin\Debug\netcoreapp3.1\CompletedECommerce.Repository.pdb
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.csproj.CoreCompileInputs.cache
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.AssemblyInfoInputs.cache
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.AssemblyInfo.cs
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.dll
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.pdb

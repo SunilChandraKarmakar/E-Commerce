@@ -22,8 +22,8 @@ namespace CompletedECommerce.Databse
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string connectionString = @"Data Source = DESKTOP-HHA0TOP; 
-                                    Initial Catalog = ClickToBuy; 
-                                    Integrated Security = SSPI;";
+                                    Initial Catalog = ECommerce; 
+                                    Integrated Security = TRUE";
             optionsBuilder.UseSqlServer(connectionString);
         }
     }
