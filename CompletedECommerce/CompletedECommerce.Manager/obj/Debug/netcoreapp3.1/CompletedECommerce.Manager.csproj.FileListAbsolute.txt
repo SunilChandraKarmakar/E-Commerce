@@ -6,3 +6,11 @@ F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECom
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Manager\obj\Debug\netcoreapp3.1\CompletedECommerce.Manager.AssemblyInfo.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Manager\obj\Debug\netcoreapp3.1\CompletedECommerce.Manager.dll
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Manager\obj\Debug\netcoreapp3.1\CompletedECommerce.Manager.pdb
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Manager\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.dll
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Manager\bin\Debug\netcoreapp3.1\CompletedECommerce.Repository.dll
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Manager\bin\Debug\netcoreapp3.1\Models.dll
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Manager\bin\Debug\netcoreapp3.1\CompletedECommerce.Repository.pdb
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Manager\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.pdb
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Manager\bin\Debug\netcoreapp3.1\Models.pdb
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Manager\obj\Debug\netcoreapp3.1\CompletedECommerce.Manager.csprojAssemblyReference.cache
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Manager\obj\Debug\netcoreapp3.1\CompletedECommerce.Manager.csproj.CopyComplete

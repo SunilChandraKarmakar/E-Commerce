@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompletedECommerce.Controllers
@@ -10,8 +11,11 @@ namespace CompletedECommerce.Controllers
     {
        [HttpGet]
        public IActionResult Index()
-        {
-            return View();
-        }
+       {
+            if (HttpContext.Session.GetString("AdminId") != null)
+                return View();
+            else
+                return RedirectToAction("Index", "Login");
+       }
     }
 }

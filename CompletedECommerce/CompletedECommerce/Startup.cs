@@ -12,6 +12,10 @@ using CompletedECommerce.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using CompletedECommerce.Manager.Contracts;
+using CompletedECommerce.Manager;
+using CompletedECommerce.Repository.Contracts;
+using CompletedECommerce.Repository;
 
 namespace CompletedECommerce
 {
@@ -34,6 +38,16 @@ namespace CompletedECommerce
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
+            services.AddTransient<IAccountManager, AccountManager>();
+            services.AddTransient<IAccountRepository, AccountRepository>();
+            services.AddTransient<IRoleRepository, RoleRepository>();
+            services.AddTransient<IRoleManager, RoleManager>();
+            services.AddTransient<IRoleAccountRepository, RoleAccountRepository>();
+            services.AddTransient<IRoleAccountManager, RoleAccountManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +71,7 @@ namespace CompletedECommerce
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
