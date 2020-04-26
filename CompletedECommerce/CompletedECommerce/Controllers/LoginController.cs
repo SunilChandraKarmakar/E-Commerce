@@ -65,5 +65,12 @@ namespace CompletedECommerce.Controllers
             }
             return View(loginInfo);
         }
+
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index");
+        }
     }
 }
