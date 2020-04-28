@@ -1,0 +1,23 @@
+﻿@using Models;
+@{
+    Layout = null;
+}
+
+@foreach (Category category in Model)
+{
+    <ul id="sideManu" class="nav nav-tabs nav-stacked">
+        <li class="subMenu open">
+            <a> @category.Name [@category.Categories.Count()] </a>
+
+            @if (category.Categories != null && category.Categories.Count() > 0)
+            {
+                foreach (Category subCatehory in category.Categories)
+                {
+                    <ul>
+                        <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>@subCatehory.Name (@subCatehory.Categories.Count()) </a></li>
+                    </ul>
+                }
+            }
+        </li>
+    </ul>
+}
