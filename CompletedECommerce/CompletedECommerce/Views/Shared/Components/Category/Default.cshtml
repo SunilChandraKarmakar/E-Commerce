@@ -13,9 +13,12 @@
             {
                 foreach (Category subCatehory in category.Categories)
                 {
-                    <ul>
-                        <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>@subCatehory.Name (@subCatehory.Categories.Count()) </a></li>
-                    </ul>
+                    if (subCatehory.Status)
+                    {
+                        <ul>
+                            <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>@subCatehory.Name (@subCatehory.Categories.Count()) </a></li>
+                        </ul>
+                    }
                 }
             }
         </li>
