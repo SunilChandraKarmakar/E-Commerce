@@ -13,6 +13,7 @@ namespace CompletedECommerce.Databse
         public DbSet<Account> Accounts { get; set; }
         public DbSet<RoleAccount> RoleAccounts { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<SlideShow> SlideShows { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

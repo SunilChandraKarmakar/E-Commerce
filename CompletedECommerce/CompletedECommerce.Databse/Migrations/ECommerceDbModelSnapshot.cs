@@ -133,6 +133,25 @@ namespace CompletedECommerce.Databse.Migrations
                     b.ToTable("RoleAccounts");
                 });
 
+            modelBuilder.Entity("Models.SlideShow", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Photo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SlideShows");
+                });
+
             modelBuilder.Entity("Models.Category", b =>
                 {
                     b.HasOne("Models.Category", "Categorye")
