@@ -19,5 +19,6 @@ namespace Models
 
         public Category Categorye { get; set; }
         public ICollection<Category> Categories { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }
