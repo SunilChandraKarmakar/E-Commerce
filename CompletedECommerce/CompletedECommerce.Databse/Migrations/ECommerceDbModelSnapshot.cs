@@ -137,6 +137,9 @@ namespace CompletedECommerce.Databse.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Featured")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Photo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

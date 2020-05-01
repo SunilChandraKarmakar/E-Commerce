@@ -16,6 +16,7 @@ namespace Models
         [Required(ErrorMessage = "Select product.")]
         public int ProductId { get; set; }
         public bool Status { get; set; }
+        public bool Featured { get; set; }
 
         public Product Product { get; set; }
     }

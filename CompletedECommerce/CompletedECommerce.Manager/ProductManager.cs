@@ -16,5 +16,10 @@ namespace CompletedECommerce.Manager
         {
             _iProductRepository = iProductRepository;
         }
+
+        public override ICollection<Product> GetAll()
+        {
+            return _iProductRepository.GetAll();
+        }
     }
 }

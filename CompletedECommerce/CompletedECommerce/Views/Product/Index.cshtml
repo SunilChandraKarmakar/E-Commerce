@@ -1,0 +1,78 @@
+﻿@using Models;
+@model ICollection<Product>;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+<section class="content-header">
+    <h1>
+        Product List
+    </h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body">
+                    <table id="myTable" class="table table-bordered table-hover dataTable">
+                        <thead>
+                            <tr>
+                                <th>Basic Info</th>
+                                <th>Item Info</th>
+                                <th>Describe</th>
+                                <th>Status</th>
+                                <th>Photo</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Product product in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        Name : @product.Name <br />
+                                        Category : @product.Category.Name <br />
+                                    </td>
+                                    <td>
+                                        Price : @product.Price <br />
+                                        Quantity : @product.Quantity <br />
+                                    </td>
+                                    <td>
+                                        Details : @product.Details <br />
+                                        Discription : @product.Description <br />
+                                    </td>
+                                    <td>
+                                        Featured : @product.Featured <br />
+                                        Status : @product.Status <br />
+                                    </td>
+                                    <td>
+                                        @{ ProductPhoto productPhoto = product.ProductPhotos.Where(p => p.Featured == true).FirstOrDefault();}
+                                        <img src="~/productphotos/@productPhoto.Photo" width="100" />
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@product.Id">Edit</a> |
+                                        <a asp-action="Delete" asp-route-id="@product.Id" onclick="return confirm('Are you sure?')">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Basic Info</th>
+                                <th>Item Info</th>
+                                <th>Describe</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div>
+</section>
+
