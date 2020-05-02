@@ -51,7 +51,14 @@
                                     </td>
                                     <td>
                                         @{ ProductPhoto productPhoto = product.ProductPhotos.Where(p => p.Featured == true).FirstOrDefault();}
-                                        <img src="~/productphotos/@productPhoto.Photo" width="100" />
+                                        @if (productPhoto != null)
+                                        {
+                                            <img src="~/productphotos/@productPhoto.Photo" width="100" />
+                                        }
+                                        else
+                                        {
+                                            <img src="~/SlideShow/NoImageFound.png" width="100" />
+                                        }
                                     </td>
                                     <td>
                                         <a asp-action="Edit" asp-route-id="@product.Id">Edit</a> |
