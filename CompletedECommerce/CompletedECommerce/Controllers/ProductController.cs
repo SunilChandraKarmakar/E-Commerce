@@ -114,7 +114,7 @@ namespace CompletedECommerce.Controllers
         }
 
         [HttpGet]
-        public IActionResult AllProductImage(int? id)
+        public IActionResult AllProductImage(int id)
         {
             if(HttpContext.Session.GetString("AdminId") != null)
             {

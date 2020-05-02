@@ -29,8 +29,11 @@
                                         <td>@(productPhoto.Status == true ? "Show" : "")</td>
                                         <td>@(productPhoto.Featured == true ? "Show" : "")</td>
                                         <td>
-                                            <a asp-controller="ProductPhoto" asp-action="Edit" asp-route-id="@productPhoto.Id" class="btn btn-info">Edit</a> |
-                                            <a asp-controller="ProductPhoto" asp-action="Delete" asp-route-id="@productPhoto.Id" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                            <a asp-controller="ProductPhoto" asp-action="Edit" asp-route-id="@productPhoto.Id" class="btn btn-info">Edit</a> 
+                                            @if (productPhoto.Featured != true)
+                                            {
+                                                <a asp-controller="ProductPhoto" asp-action="Delete" asp-route-id="@productPhoto.Id" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                            }
                                         </td>
                                     </tr>
                                 }

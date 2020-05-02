@@ -118,7 +118,7 @@ namespace CompletedECommerce.Controllers
                 bool isUpdate = _iProductPhotoManager.Update(aProductPhotoInfo);
 
                 if (isUpdate)
-                    return RedirectToAction("Index", "Product");
+                    return RedirectToAction("AllProductImage", "Product", new { id = aProductPhotoInfo.ProductId });
                 else
                 {
                     ViewBag.ErrorMessage = "Product Photo update has been failed! Try again.";
@@ -138,6 +138,7 @@ namespace CompletedECommerce.Controllers
                     return NotFound();
 
                 ProductPhoto aProductPhotoInfo = _iProductPhotoManager.GetById(id);
+                int productId = aProductPhotoInfo.ProductId;
 
                 if (aProductPhotoInfo == null)
                     return NotFound();
@@ -145,7 +146,7 @@ namespace CompletedECommerce.Controllers
                 bool isRemove = _iProductPhotoManager.Remove(aProductPhotoInfo);
 
                 if (isRemove)
-                    return RedirectToAction("Index", "Product");
+                    return RedirectToAction("AllProductImage", "Product", new { id = productId });
                 else
                     ViewBag.ErrorMessage = "Product photo remove has been failed! Try again.";
             }
