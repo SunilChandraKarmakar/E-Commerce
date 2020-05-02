@@ -53,7 +53,7 @@
                                         @{ ProductPhoto productPhoto = product.ProductPhotos.Where(p => p.Featured == true).FirstOrDefault();}
                                         @if (productPhoto != null)
                                         {
-                                            <img src="~/productphotos/@productPhoto.Photo" width="100" />
+                                            <img src="~/@productPhoto.Photo" width="100" />
                                         }
                                         else
                                         {
@@ -61,6 +61,8 @@
                                         }
                                     </td>
                                     <td>
+                                        <a asp-action="AllProductImage" asp-route-id="@product.Id" class="btn btn-primary">Photo List</a> |
+                                        <a asp-controller="ProductPhoto" asp-action="Create" asp-route-id="@product.Id" class="btn btn-success">Add Photo</a> |
                                         <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-info">Edit</a> |
                                         <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                     </td>
@@ -73,6 +75,7 @@
                                 <th>Item Info</th>
                                 <th>Describe</th>
                                 <th>Status</th>
+                                <th>Photo</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>

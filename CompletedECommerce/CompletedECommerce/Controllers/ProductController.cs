@@ -14,11 +14,14 @@ namespace CompletedECommerce.Controllers
     {
         private readonly IProductManager _iProductManager;
         private readonly ICategoryManager _iCategoryManager;
+        private readonly IProductPhotoManager _iProductPhotoManager; 
 
-        public ProductController(IProductManager iProductManager, ICategoryManager iCategoryManager)
+        public ProductController(IProductManager iProductManager, ICategoryManager iCategoryManager,
+                                IProductPhotoManager iProductPhotoManager)
         {
             _iProductManager = iProductManager;
             _iCategoryManager = iCategoryManager;
+            _iProductPhotoManager = iProductPhotoManager;
         }
 
         [HttpGet]
@@ -108,6 +111,20 @@ namespace CompletedECommerce.Controllers
 
             ViewBag.CategoryList = CategoryList();
             return View(aProductInfo);
+        }
+
+        [HttpGet]
+        public IActionResult AllProductImage(int? id)
+        {
+            if(HttpContext.Session.GetString("AdminId") != null)
+            {
+                ICollection<ProductPhoto> productPhotos = _iProductPhotoManager.GetAll()
+                                                      .Where(ph => ph.ProductId == id).ToList();
+                return View(productPhotos);
+            }
+
+            return RedirectToAction("Index", "Login");
+                                                      
         }
 
         [HttpGet]

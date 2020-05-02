@@ -54,6 +54,8 @@ namespace CompletedECommerce
             services.AddTransient<ISlideShowRepository, SlideShowRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IProductManager, ProductManager>();
+            services.AddTransient<IProductPhotoManager, ProductPhotoManager>();
+            services.AddTransient<IProductPhotoRepository, ProductPhotoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,41 @@
+﻿@using Models;
+@model ProductPhoto;
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Edit Product Photo</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <form method="post" asp-controller="ProductPhoto" asp-action="Edit" asp-route-pto="@Model.Photo" enctype="multipart/form-data">
+            <div class="box-body">
+                <div class="form-group">
+                    <input type="hidden" asp-for="@Model.ProductId" />
+                    <label asp-for="@Model.Photo">Photo</label>
+                    <input type="file" asp-for="@Model.Photo" class="form-control">
+                    <span asp-validation-for="@Model.Photo" class="text-danger"></span>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" asp-for="@Model.Status"> Status
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" asp-for="@Model.Featured"> Featured
+                    </label>
+                </div>
+            </div><!-- /.box-body -->
+
+            <div class="box-footer">
+                <span class="text-danger">@ViewBag.ErrorMessage</span>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a asp-controller="Product" asp-action="Index" class="btn btn-info">Back To Product List</a>
+            </div>
+        </form>
+    </div>
+

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Models
+namespace CompletedECommerce.Views.ModelView
 {
-    public class ProductPhoto
+    public class ProductPhotoModelView
     {
-        public int Id { get; set; }
-
         [DataType(DataType.ImageUrl)]
         public string Photo { get; set; }
 
@@ -16,7 +15,5 @@ namespace Models
         public int ProductId { get; set; }
         public bool Status { get; set; }
         public bool Featured { get; set; }
-
-        public Product Product { get; set; }
     }
 }
