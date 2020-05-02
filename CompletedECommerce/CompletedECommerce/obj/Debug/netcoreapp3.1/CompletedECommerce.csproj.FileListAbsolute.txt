@@ -178,3 +178,4 @@ F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECom
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\SlideShow\Default.cshtml.g.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\Create.cshtml.g.cs
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\Edit.cshtml.g.cs

@@ -61,8 +61,8 @@
                                         }
                                     </td>
                                     <td>
-                                        <a asp-action="Edit" asp-route-id="@product.Id">Edit</a> |
-                                        <a asp-action="Delete" asp-route-id="@product.Id" onclick="return confirm('Are you sure?')">Delete</a>
+                                        <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-info">Edit</a> |
+                                        <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                     </td>
                                 </tr>
                             }

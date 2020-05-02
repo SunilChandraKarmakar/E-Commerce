@@ -69,5 +69,69 @@ namespace CompletedECommerce.Controllers
             ViewBag.CategoryList = CategoryList();
             return View(aProduct);
         }
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            if(HttpContext.Session.GetString("AdminId") != null)
+            {
+                if (id == null)
+                    return NotFound();
+
+                Product aProductDetails = _iProductManager.GetById(id);
+
+                if (aProductDetails == null)
+                    return NotFound();
+
+                ViewBag.CategoryList = CategoryList();
+                return View(aProductDetails);
+            }
+
+            return RedirectToAction("Index", "Login");
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Product aProductInfo)
+        {
+            if(ModelState.IsValid)
+            {
+                bool isUpdate = _iProductManager.Update(aProductInfo);
+
+                if (isUpdate)
+                    return RedirectToAction("Index");
+                else
+                {
+                    ViewBag.ErrorMessage = "Product update has been failed! Try again";
+                    return View(aProductInfo);
+                }
+            }
+
+            ViewBag.CategoryList = CategoryList();
+            return View(aProductInfo);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            if(HttpContext.Session.GetString("AdminId") != null)
+            {
+                if (id == null)
+                    return NotFound();
+
+                Product aProductDetails = _iProductManager.GetById(id);
+
+                if (aProductDetails == null)
+                    return NotFound();
+
+                bool isRemove = _iProductManager.Remove(aProductDetails);
+
+                if (isRemove)
+                    return RedirectToAction("Index");
+                else
+                    ViewBag.ErrorMessage = "Product delete has been failed! Try again";
+            }
+
+            return RedirectToAction("Index", "Login");
+        }
     }
 }
