@@ -68,7 +68,7 @@ namespace CompletedECommerce.Controllers
                 bool isCreate = _iProductPhotoManager.Add(aProductInfo);
 
                 if (isCreate)
-                    return RedirectToAction("Index", "Product");
+                    return RedirectToAction("AllProductImage", "Product", new {id = aProductPhotoModelViewInfo.ProductId });
                 else
                 {
                     ViewBag.ErrorMessage = "Product picture save failed! Try again.";
@@ -149,6 +149,41 @@ namespace CompletedECommerce.Controllers
                     return RedirectToAction("AllProductImage", "Product", new { id = productId });
                 else
                     ViewBag.ErrorMessage = "Product photo remove has been failed! Try again.";
+            }
+
+            return RedirectToAction("Index", "Login");
+        }
+
+        [HttpGet]
+        public IActionResult CreateFeatured(int? id)
+        {
+            if(HttpContext.Session.GetString("AdminId") != null)
+            {
+                if (id == null)
+                    return NotFound();
+
+                ProductPhoto selectedProductPhoto = _iProductPhotoManager.GetById(id);
+
+                ICollection<ProductPhoto> productPhotosByCategoryId = _iProductPhotoManager.GetAll()
+                                                                      .Where(ph => ph.ProductId 
+                                                                                == selectedProductPhoto.ProductId)
+                                                                      .ToList();
+                ProductPhoto selectedFeaturedProductPhoto = productPhotosByCategoryId
+                                                            .Where(ph => ph.Featured == true).FirstOrDefault();
+                selectedFeaturedProductPhoto.Featured = false;
+                selectedProductPhoto.Featured = true;
+
+                bool isUpdateSelectedFeaturedProductPhoto = _iProductPhotoManager.Update(selectedProductPhoto);
+                bool isUpdateCreateFeaturedProductPhoto = _iProductPhotoManager.Update(selectedFeaturedProductPhoto);
+
+                if (isUpdateCreateFeaturedProductPhoto == true && isUpdateSelectedFeaturedProductPhoto == true)
+                    return RedirectToAction("AllProductImage", "Product", new { id = selectedProductPhoto.ProductId });
+                else
+                {
+                    ViewBag.ErrorMessage = "Featured product photo create failed! Try again.";
+                    return RedirectToAction("AllProductImage", "Product", new { id = selectedProductPhoto.ProductId });
+                }
+                    
             }
 
             return RedirectToAction("Index", "Login");

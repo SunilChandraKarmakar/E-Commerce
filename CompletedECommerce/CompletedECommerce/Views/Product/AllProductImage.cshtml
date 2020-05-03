@@ -5,51 +5,64 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-    <section class="content">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="box">
-                    <div class="box-body">
-                        <table id="myTable" class="table table-bordered table-hover dataTable">
-                            <thead>
+<div class="row">
+        <span class="text-danger">@ViewBag.ErrorMessage</span>
+    </div>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body">
+                    <table id="myTable" class="table table-bordered table-hover dataTable">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Status</th>
+                                <th>Featured</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (ProductPhoto productPhoto in Model)
+                            {
                                 <tr>
-                                    <th>Photo</th>
-                                    <th>Status</th>
-                                    <th>Featured</th>
-                                    <th>Action</th>
+                                    <td>                
+                                        <img src="~/@productPhoto.Photo" width="100" height="100" />
+                                    </td>
+                                    <td>@(productPhoto.Status == true ? "Show" : "")</td>
+                                    <td>
+                                        @if (productPhoto.Featured != true)
+                                        {
+                                            <a asp-controller="ProductPhoto" asp-action="CreateFeatured" asp-route-id="@productPhoto.Id">Set Featured</a>
+                                        }
+
+                                        else
+                                        {
+                                            <p>Featured</p>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a asp-controller="ProductPhoto" asp-action="Edit" asp-route-id="@productPhoto.Id" class="btn btn-info">Edit</a> 
+                                        @if (productPhoto.Featured != true)
+                                        {
+                                            <a>|</a> <a asp-controller="ProductPhoto" asp-action="Delete" asp-route-id="@productPhoto.Id" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                        }
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (ProductPhoto productPhoto in Model)
-                                {
-                                    <tr>
-                                        <td>                
-                                            <img src="~/@productPhoto.Photo" width="100" height="100" />
-                                        </td>
-                                        <td>@(productPhoto.Status == true ? "Show" : "")</td>
-                                        <td>@(productPhoto.Featured == true ? "Show" : "")</td>
-                                        <td>
-                                            <a asp-controller="ProductPhoto" asp-action="Edit" asp-route-id="@productPhoto.Id" class="btn btn-info">Edit</a> 
-                                            @if (productPhoto.Featured != true)
-                                            {
-                                                <a asp-controller="ProductPhoto" asp-action="Delete" asp-route-id="@productPhoto.Id" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
-                                            }
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Photo</th>
-                                    <th>Status</th>
-                                    <th>Featured</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-            </div><!-- /.col -->
-        </div>
-    </section>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Status</th>
+                                <th>Featured</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div>
+</section>
 

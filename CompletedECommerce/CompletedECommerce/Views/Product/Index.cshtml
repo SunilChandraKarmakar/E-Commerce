@@ -50,10 +50,13 @@
                                         Status : @product.Status <br />
                                     </td>
                                     <td>
-                                        @{ ProductPhoto productPhoto = product.ProductPhotos.Where(p => p.Featured == true).FirstOrDefault();}
-                                        @if (productPhoto != null)
+                                        @{ 
+                                            List<ProductPhoto> productPhotos = product.ProductPhotos.ToList();
+                                            ProductPhoto selectedProductPhoto = productPhotos.Where(ph => ph.Featured == true).FirstOrDefault();
+                                         }
+                                        @if (selectedProductPhoto != null)
                                         {
-                                            <img src="~/@productPhoto.Photo" width="100" />
+                                            <img src="~/@selectedProductPhoto.Photo" width="100" />
                                         }
                                         else
                                         {
