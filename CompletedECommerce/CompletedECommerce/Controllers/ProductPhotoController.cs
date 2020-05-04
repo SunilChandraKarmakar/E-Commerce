@@ -182,8 +182,7 @@ namespace CompletedECommerce.Controllers
                 {
                     ViewBag.ErrorMessage = "Featured product photo create failed! Try again.";
                     return RedirectToAction("AllProductImage", "Product", new { id = selectedProductPhoto.ProductId });
-                }
-                    
+                }                           
             }
 
             return RedirectToAction("Index", "Login");

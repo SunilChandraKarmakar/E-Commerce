@@ -22,7 +22,7 @@ namespace CompletedECommerce.Controllers
         public IActionResult Index()
         {
             if(HttpContext.Session.GetString("AdminId") != null)
-                return View(_iCategoryManager.GetAll().Where(c => c.Categorye == null));
+                return View(_iCategoryManager.GetAll().Where(c => c.Categorye == null).OrderByDescending(c=>c.Id));
             
             return RedirectToAction("Index", "Login");
         }

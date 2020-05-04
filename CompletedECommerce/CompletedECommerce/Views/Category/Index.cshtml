@@ -20,6 +20,7 @@
                     <table id="myTable" class="table table-bordered table-hover">
                         <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Name</th>
                                 <th>Parent Name</th>
                                 <th>Status</th>
@@ -30,6 +31,7 @@
                             @foreach (Category category in Model)
                             {
                                 <tr>
+                                    <td>@category.Id</td>
                                     <td><b>@category.Name</b></td>
                                     <td>@(category.Categorye == null ? " " : category.Categorye.Name)</td>
                                     <td>@(category.Status == true ? "Show" : "Hide")</td>
@@ -42,6 +44,7 @@
                                 @foreach (Category subCategory in category.Categories)
                                 {
                                     <tr role="row" class="odd">
+                                        <td>@subCategory.Id</td>
                                         <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @subCategory.Name</td>
                                         <td>@subCategory.Categorye.Name</td>
                                         <td>@(subCategory.Status == true ? "Show" : "Hide")</td>
@@ -53,6 +56,15 @@
                                 }
                             }
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Parent Name</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->

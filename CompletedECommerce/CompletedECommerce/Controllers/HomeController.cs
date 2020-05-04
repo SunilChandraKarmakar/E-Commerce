@@ -6,21 +6,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CompletedECommerce.Models;
+using CompletedECommerce.Manager.Contracts;
+using Models;
 
 namespace CompletedECommerce.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IProductManager _iProductManager;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IProductManager iProductManager)
         {
             _logger = logger;
+            _iProductManager = iProductManager;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.FeaturedProducts = _iProductManager.GetAll()
+                                                    .Where(fp => fp.Status == true && fp.Featured == true).ToList(); 
             return View();
         }
 
