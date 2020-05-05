@@ -26,7 +26,9 @@ namespace CompletedECommerce.Controllers
         public IActionResult Index()
         {
             ViewBag.FeaturedProducts = _iProductManager.GetAll()
-                                                    .Where(fp => fp.Status == true && fp.Featured == true).ToList(); 
+                                                    .Where(fp => fp.Status == true && fp.Featured == true).ToList();
+            ViewBag.LatestProducts = _iProductManager.GetAll()
+                                    .Where(lp => lp.Status == true && lp.Featured == false).ToList();
             return View();
         }
 

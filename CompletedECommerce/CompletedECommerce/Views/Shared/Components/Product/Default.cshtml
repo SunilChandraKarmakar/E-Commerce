@@ -1,0 +1,26 @@
+﻿@using Models;
+@model ICollection<Product>;
+
+@{
+    Layout = null;
+}
+
+@foreach (Product product in Model)
+{
+    ProductPhoto aProductPhoto = product.ProductPhotos
+                                                               .Where(ph => ph.Featured == true).FirstOrDefault();
+    string productPhotoName = aProductPhoto == null ? "SlideShow/NoImageFound.png" : aProductPhoto.Photo;
+
+    <div class="thumbnail">
+        <img src="~/@productPhotoName" alt="Bootshop panasonoc New camera" />
+        <div class="caption">
+            <h5>@product.Name</h5>
+            <h4 style="text-align:center">
+                <a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> 
+                <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> 
+                <a class="btn btn-primary" href="#">$@product.Price</a>
+            </h4>
+        </div>
+    </div>
+    <br />
+}
