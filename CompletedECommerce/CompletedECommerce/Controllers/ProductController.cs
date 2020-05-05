@@ -150,5 +150,29 @@ namespace CompletedECommerce.Controllers
 
             return RedirectToAction("Index", "Login");
         }
+
+        [HttpGet]
+        public IActionResult ProductDetails(int? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            Product selectedProductDetails = _iProductManager.GetById(id);
+
+            if (selectedProductDetails == null)
+                return NotFound();
+
+            ICollection<ProductPhoto> aProductPhotoList = _iProductPhotoManager.GetAll()
+                                                          .Where(ph => ph.ProductId == id).ToList();
+            ProductPhoto productFeaturedPhoto = aProductPhotoList
+                                                .Where(ph => ph.Status == true && ph.Featured == true)
+                                                .FirstOrDefault();
+            ViewBag.ProductFeaturedPhotoName = productFeaturedPhoto == null ? "SlideShow/NoImageFound.png" : productFeaturedPhoto.Photo;
+            ViewBag.ProductPhotoList = aProductPhotoList;
+            ViewBag.RelatedProduct = _iProductManager.GetAll()
+                                    .Where(p => p.CategoryId == selectedProductDetails.CategoryId 
+                                           && p.Id != selectedProductDetails.Id && p.Status == true).ToList();
+            return View(selectedProductDetails);
+        }
     }
 }

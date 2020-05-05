@@ -103,7 +103,10 @@
     </div>
     <!-- Header End====================================================================== -->
     <div id="carouselBlk">
-        @await Component.InvokeAsync("SlideShow")
+        @if (ViewBag.Home == true)
+        {
+            @await Component.InvokeAsync("SlideShow")
+        }
     </div>
     <div id="mainBody">
         <div class="container">

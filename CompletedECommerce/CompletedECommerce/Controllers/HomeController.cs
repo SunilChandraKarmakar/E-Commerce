@@ -25,6 +25,7 @@ namespace CompletedECommerce.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.Home = true;
             ViewBag.FeaturedProducts = _iProductManager.GetAll()
                                                     .Where(fp => fp.Status == true && fp.Featured == true).ToList();
             ViewBag.LatestProducts = _iProductManager.GetAll()

@@ -23,10 +23,13 @@
                                 <li class="span3">
                                     <div class="thumbnail">
                                         <i class="tag"></i>
-                                        <a href="product_details.html"><img src="~/@productPhotoName" alt=""></a>
+                                        <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id"><img src="~/@productPhotoName" alt=""></a>
                                         <div class="caption">
                                             <h5>@product.Name</h5>
-                                            <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$@product.Price</span></h4>
+                                            <h4>
+                                                <a class="btn" asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id">VIEW</a> 
+                                                <span class="pull-right">$@product.Price</span>
+                                            </h4>
                                         </div>
                                     </div>
                                 </li>
@@ -51,12 +54,12 @@
 
             <li class="span3">
                 <div class="thumbnail">
-                    <a href="product_details.html"><img src="~/@productPhotoName" alt=""></a>
+                    <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@latestProduct.Id"><img src="~/@productPhotoName" alt=""></a>
                     <div class="caption">
                         <h5>@latestProduct.Name</h5>
                         <p>Lorem Ipsum is simply dummy text.</p>
                     <h4 style="text-align:center">
-                        <a class="btn" href="product_details.html"><i class="icon-zoom-in"></i></a> 
+                        <a class="btn" asp-controller="Product" asp-action="ProductDetails" asp-route-id="@latestProduct.Id"><i class="icon-zoom-in"></i></a> 
                         <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> 
                         <a class="btn btn-primary" href="#">$@latestProduct.Price</a>
                     </h4>
