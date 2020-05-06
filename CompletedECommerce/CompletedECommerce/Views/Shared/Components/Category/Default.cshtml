@@ -1,10 +1,12 @@
 ﻿@using Models;
+
 @{
     Layout = null;
+    ICollection<Product> products = ViewBag.Products;
 }
 
 @foreach (Category category in Model)
-{
+{                                                                                                               
     <ul id="sideManu" class="nav nav-tabs nav-stacked">
         <li class="subMenu open">
             <a> @category.Name [@category.Categories.Count()] </a>
@@ -13,10 +15,15 @@
             {
                 foreach (Category subCatehory in category.Categories)
                 {
+                    int countSubCategoryProduct = products.Where(p => p.CategoryId == subCatehory.Id && p.Status).Count();
+
                     if (subCatehory.Status)
                     {
                         <ul>
-                            <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>@subCatehory.Name (@subCatehory.Categories.Count()) </a></li>
+                            <li>
+                                <a class="active" asp-controller="Product" asp-action="GetProductByCategoryId" asp-route-id="@subCatehory.Id">
+                                <i class="icon-chevron-right"></i>@subCatehory.Name (@countSubCategoryProduct)</a>
+                            </li>
                         </ul>
                     }
                 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
+using X.PagedList;
 
 namespace CompletedECommerce.Controllers
 {
@@ -173,6 +174,20 @@ namespace CompletedECommerce.Controllers
                                     .Where(p => p.CategoryId == selectedProductDetails.CategoryId 
                                            && p.Id != selectedProductDetails.Id && p.Status == true).ToList();
             return View(selectedProductDetails);
+        }
+
+        [HttpGet]
+        public IActionResult GetProductByCategoryId(int? id, int? page)
+        {
+            if (id == null)
+                return NotFound();
+
+            Category selectedCategoryInfo = _iCategoryManager.GetById(id);
+            IPagedList<Product> products = _iProductManager.GetAll()
+                                            .Where(p => p.CategoryId == id && p.Status == true)
+                                            .ToList().ToPagedList(page ?? 1, 5);
+            ViewBag.SelectedCategoryInfo = selectedCategoryInfo;
+            return View(products);
         }
     }
 }
