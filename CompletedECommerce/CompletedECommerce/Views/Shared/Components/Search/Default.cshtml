@@ -4,21 +4,10 @@
     Layout = null;
 }
 
-    <select class="srchTxt">
-        <option value="">Select Category</option>
-        @foreach (Category category in Model)
-        {
-            <option value="@category.Id">@category.Name</option>
-
-            @if (category.Categories != null & category.Categories.Count() > 0)
-            {
-                foreach (Category subCategory in category.Categories)
-                {
-                    if (subCategory.Status == true)
-                    {
-                        <option value="@subCategory.Id">&nbsp; &nbsp; &nbsp; @subCategory.Name</option>
-                    }
-                }
-            }
-        }
+<form class="form-inline navbar-search" method="get" asp-controller="Product" asp-action="SearchProductByName">
+    <input id="srchFld" class="srchTxt" name="productName" type="text" required="required">
+    <select asp-items="@Model" class="srchTxt">
+        <option value="">Select Category</option>         
     </select>
+    <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
+</form>

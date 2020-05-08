@@ -1,5 +1,6 @@
 ﻿using CompletedECommerce.Manager.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,12 @@ namespace CompletedECommerce.ViewComponents
         {
             ICollection<Category> categoryList = _iCategoryManager.GetAll()
                                                 .Where(c => c.Categorye == null & c.Status == true).ToList();
-            return View(categoryList);
+            List<SelectListItem> categorySelectList = categoryList.Select(c => new SelectListItem
+                                                      {
+                                                            Value = c.Id.ToString(),
+                                                            Text = c.Name
+                                                      }).ToList();
+            return View(categorySelectList);
         }
     }
 }
