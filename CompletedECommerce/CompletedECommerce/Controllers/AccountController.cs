@@ -12,10 +12,12 @@ namespace CompletedECommerce.Controllers
     public class AccountController : Controller
     {
         private readonly IAccountManager _iAccountManager;
+        private readonly IRoleAccountManager _iRoleAccountManager;
 
-        public AccountController(IAccountManager iAccountManager)
+        public AccountController(IAccountManager iAccountManager,IRoleAccountManager iRoleAccountManager)
         {
             _iAccountManager = iAccountManager;
+            _iRoleAccountManager = iRoleAccountManager;
         }
 
         private int LoginAdminId()
@@ -53,6 +55,66 @@ namespace CompletedECommerce.Controllers
                     ViewBag.Message = "Update has been failed! Please try again.";
             }
             return View(aAccountDetails);
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(Account aAccountInfo)
+        {
+            aAccountInfo.Status = true;
+            
+            if(ModelState.IsValid)
+            {
+                bool isSaveAccount = _iAccountManager.Add(aAccountInfo);
+                Account lastAddAccountInfo = _iAccountManager.GetAll().LastOrDefault();
+                RoleAccount initialRoleAccount = new RoleAccount()
+                {
+                    RoleId = 2,
+                    AccountId = lastAddAccountInfo.Id,
+                    Status = true
+                };
+
+                bool isSaveRoleAccount = _iRoleAccountManager.Add(initialRoleAccount);
+
+                if(isSaveAccount == true && isSaveRoleAccount == true)
+                    return RedirectToAction("Index", "Login");
+                else
+                {
+                    ViewBag.ErrorMessage = "Registration has been failed! Try again.";
+                    return View(aAccountInfo);
+                }
+            }
+
+            return View(aAccountInfo);
+        }
+
+        [HttpGet]
+        [Route("api/[controller]/[action]")]
+        public JsonResult ExistUserName(string userName)
+        {
+            Account aAccountInfo = _iAccountManager.GetAll()
+                                   .Where(a => a.Username == userName).FirstOrDefault();
+            if (aAccountInfo != null)
+                return Json(1);
+            else
+                return Json(0);
+        }
+
+        [HttpGet]
+        [Route("api/[controller]/[action]")]
+        public JsonResult ExistEmail(string email)
+        {
+            Account aAccountInfo = _iAccountManager.GetAll()
+                                   .Where(a => a.Email == email).FirstOrDefault();
+            if (aAccountInfo != null)
+                return Json(1);
+            else
+                return Json(0);
         }
     }
 }

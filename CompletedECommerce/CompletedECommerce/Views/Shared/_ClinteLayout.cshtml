@@ -6,15 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <!--Less styles -->
-    <!-- Other Less css file //different less files has different color scheam
-     <link rel="stylesheet/less" type="text/css" href="themes/less/simplex.less">
-     <link rel="stylesheet/less" type="text/css" href="themes/less/classified.less">
-     <link rel="stylesheet/less" type="text/css" href="themes/less/amelia.less">  MOVE DOWN TO activate
-     -->
-    <!--<link rel="stylesheet/less" type="text/css" href="themes/less/bootshop.less">
-    <script src="themes/js/less.js" type="text/javascript"></script> -->
     
     <!-- Bootstrap style -->
     <link id="callCss" rel="stylesheet" href="~/themes/bootshop/bootstrap.min.css" media="screen" />
@@ -61,9 +52,9 @@
                 </a>
                 <div class="navbar-inner">
                     <a class="brand" asp-controller="Home" asp-action="Index"><img src="~/themes/images/logo.png" alt="Bootsshop" /></a>
-                    
+
                     @await Component.InvokeAsync("Search")
-                    
+
                     <ul id="topMenu" class="nav pull-right">
                         <li class=""><a href="special_offer.html">Specials Offer</a></li>
                         <li class=""><a href="normal.html">Delivery</a></li>
@@ -90,7 +81,8 @@
                                         </div>
                                     </form>
                                     <button type="submit" class="btn btn-success">Sign in</button>
-                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button> <br />
+                                    <a type="submit" asp-controller="Account" asp-action="Register">Register</a>
                                 </div>
                             </div>
                         </li>
@@ -112,9 +104,9 @@
                 <!-- Sidebar ================================================== -->
                 <div id="sidebar" class="span3">
                     <div class="well well-small"><a id="myCart" href="product_summary.html"><img src="~/themes/images/ico-cart.png" alt="cart">3 Items in your cart  <span class="badge badge-warning pull-right">$155.00</span></a></div>
-                        @await Component.InvokeAsync("Category")
+                    @await Component.InvokeAsync("Category")
                     <br />
-                    
+
                     @await Component.InvokeAsync("Product")
 
                     <div class="thumbnail">
@@ -170,7 +162,11 @@
         </div><!-- Container End -->
     </div>
     <!-- Placed at the end of the document so the pages load faster ============================================= -->
-    <script src="~/themes/js/jquery.js" type="text/javascript"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
     <script src="~/themes/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="~/themes/js/google-code-prettify/prettify.js"></script>
 
