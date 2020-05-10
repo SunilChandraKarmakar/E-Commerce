@@ -198,3 +198,5 @@ F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECom
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\CompletedECommerce.MvcApplicationPartsAssemblyInfo.cache
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\ClinteDeshboard\Index.cshtml.g.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\ClinteDeshboard\Profile.cshtml.g.cs
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Account\Edit.cshtml.g.cs

@@ -16,5 +16,10 @@ namespace CompletedECommerce.Manager
         {
             _iRoleAccountRepository = iRoleAccountRepository;
         }
+
+        public override ICollection<RoleAccount> GetAll()
+        {
+            return _iRoleAccountRepository.GetAll();
+        }
     }
 }

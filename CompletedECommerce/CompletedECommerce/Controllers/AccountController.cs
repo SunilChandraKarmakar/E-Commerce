@@ -20,6 +20,20 @@ namespace CompletedECommerce.Controllers
             _iRoleAccountManager = iRoleAccountManager;
         }
 
+        [HttpGet]
+        public IActionResult Index()
+        {
+            if(HttpContext.Session.GetString("AdminId") != null)
+            {
+                ICollection<RoleAccount> customerList = _iRoleAccountManager.GetAll()
+                                                        .Where(ra => ra.RoleId == 2 && ra.Status == true)
+                                                        .ToList();
+                return View(customerList);
+            }
+
+            return RedirectToAction("Index", "Login");
+        }
+
         private int LoginAdminId()
         {
             string loginAdminId = HttpContext.Session.GetString("AdminId");
@@ -115,6 +129,46 @@ namespace CompletedECommerce.Controllers
                 return Json(1);
             else
                 return Json(0);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            if(HttpContext.Session.GetString("AdminId") != null)
+            {
+                if (id == null)
+                    return NotFound();
+
+                RoleAccount getRoleAccount = _iRoleAccountManager.GetById(id);
+                Account getSelectedCustomer = _iAccountManager.GetAll()
+                                              .Where(a => a.Id == getRoleAccount.AccountId).FirstOrDefault();
+                if (getRoleAccount == null || getSelectedCustomer == null)
+                    return NotFound();
+
+                return View(getSelectedCustomer);
+            }
+
+            return RedirectToAction("Index", "Login");
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Account accountDetails)
+        {
+            if(ModelState.IsValid)
+            {
+                bool isUpdate = _iAccountManager.Update(accountDetails);
+
+                if (isUpdate)
+                    return RedirectToAction("Index");
+                else
+                {
+                    ViewBag.ErrorMessage = "Customer account update failed! Try again";
+                    return View(accountDetails);
+                }
+            }
+
+            ViewBag.ErrorMessage = "Customer account update failed! Try again";
+            return View(accountDetails);
         }
     }
 }
