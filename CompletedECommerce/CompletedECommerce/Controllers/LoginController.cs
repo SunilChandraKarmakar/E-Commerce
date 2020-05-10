@@ -73,6 +73,12 @@ namespace CompletedECommerce.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult CustomerLogin()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult CustomerLogin(string username, string password)
         {
@@ -97,7 +103,7 @@ namespace CompletedECommerce.Controllers
                 if (aRoleAccountInfo != null)
                 {
                     HttpContext.Session.SetString("CustomerId", loginCustomerInfo.Id.ToString());
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "ClinteDeshboard");
                 }
                 else
                 {
@@ -109,6 +115,13 @@ namespace CompletedECommerce.Controllers
 
             ViewBag.ErrorMessage = "Username and password are not match! Try again";
             return View("CustomerLogin");
+        }
+
+        [HttpGet]
+        public IActionResult CustomerLogout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("CustomerLogin");
         }
     }
 }

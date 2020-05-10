@@ -1,42 +1,44 @@
-﻿@model Models.Account;
+﻿@using Models;
+@model Account; 
+
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Profile";
     Layout = "~/Views/Shared/_ClinteLayout.cshtml";
 }
 
 <ul class="breadcrumb">
     <li><a asp-controller="Home" asp-action="Index">Home</a> <span class="divider">/</span></li>
-    <li class="active">Registration</li>
+    <li class="active">My Information</li>
 </ul>
-<h3> Registration</h3>
+<h3>My Information</h3>
 <div class="well">
-    <form class="form-horizontal" method="post" asp-controller="Account" asp-action="Register">
+    <form class="form-horizontal" method="post" asp-controller="ClinteDeshboard" asp-action="Profile">
         <h4>Your personal information</h4>
         <div class="control-group">
             <label asp-for="@Model.Username" class="control-label">Username <sup>*</sup></label>
             <div class="controls">
-                <input type="text" asp-for="@Model.Username" placeholder="User name">
+                <input type="text" asp-for="@Model.Username" value="@Model.Username" readonly="readonly" placeholder="User name">
                 <span asp-validation-for="@Model.Username" id="username" class="alert-block alert-error fade in"></span>
             </div>
         </div>
         <div class="control-group">
             <label asp-for="@Model.FullName" class="control-label">Full name <sup>*</sup></label>
             <div class="controls">
-                <input type="text" asp-for="@Model.FullName" placeholder="Full Name">
+                <input type="text" asp-for="@Model.FullName" value="@Model.FullName" placeholder="Full Name">
                 <span asp-validation-for="@Model.FullName" class="alert-block alert-error fade in"></span>
             </div>
         </div>
         <div class="control-group">
             <label asp-for="@Model.Email" class="control-label">Email <sup>*</sup></label>
             <div class="controls">
-                <input type="email" asp-for="@Model.Email" placeholder="Email">
+                <input type="email" asp-for="@Model.Email" value="@Model.Email" placeholder="Email">
                 <span asp-validation-for="@Model.Email" id="email" class="alert-block alert-error fade in"></span>
             </div>
         </div>
         <div class="control-group">
             <label asp-for="@Model.Password" class="control-label">Password <sup>*</sup></label>
             <div class="controls">
-                <input type="password" asp-for="@Model.Password" placeholder="Password">
+                <input type="password" asp-for="@Model.Password" value="@Model.Password" placeholder="Password">
                 <span asp-validation-for="@Model.Password" class="alert-block alert-error fade in"></span>
             </div>
         </div>
@@ -51,7 +53,9 @@
         <div class="control-group">
             <div class="controls">
                 <span class="text-danger">@ViewBag.ErrorMessage</span>
+                <input type="hidden" asp-for="@Model.Id" value="@Model.Id" />
                 <input class="btn btn-large btn-success" type="submit" value="Register">
+                <a asp-controller="ClinteDeshboard" asp-action="Index" class="btn btn-large btn-info">Deshboard</a>
             </div>
         </div>
     </form>
@@ -62,41 +66,3 @@
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 
 
-<script>
-    $(document).ready(function () {
-        $("#Username").change(function () {
-            var userName = $("#Username").val();
-            var serverUrl = '/api/Account/ExistUserName?userName=' + userName;
-
-            $.ajax({
-                url: serverUrl,
-                success: function (response) {
-                    if (response == 1) {
-                        $("#username").append('<span class="alert-block alert-error fade in">Username already exist! Try new.</span>');
-                        $("#Username").val('');
-                    }
-                },
-                error: function (response) {
-                    alert(response);
-                }
-            });
-        });
-        $("#Email").change(function () {
-            var email = $("#Email").val();
-            var serverUrl = '/api/Account/ExistEmail?email=' + email;
-
-            $.ajax({
-                url: serverUrl,
-                success: function (response) {
-                    if (response == 1) {
-                        $("#email").append('<span class="alert-block alert-error fade in">Email already exist! Try new.</span>');
-                        $("#Email").val('');
-                    }    
-                },
-                error: function (response) {
-                    alert(response);
-                }
-            });
-        });
-    });
-</script>

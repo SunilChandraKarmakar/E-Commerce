@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ClinteLayout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a asp-controller="Home" asp-action="Index">Home</a> <span class="divider">/</span></li>
+    <li class="active">Customer Deshboard</li>
+</ul>
+<div class="well">
+    <ul>
+        <li>
+            <h4><a asp-controller="ClinteDeshboard" asp-action="Profile">My Profile</a></h4>
+        </li>
+        <li>
+            <h4><a asp-controller="ClinteDeshboard" asp-action="Profile">Invoice Management</a></h4>
+        </li>
+        <li>
+            <h4><a asp-controller="Login" asp-action="CustomerLogout">Logout</a></h4>
+        </li>
+    </ul>
+</div>
+
