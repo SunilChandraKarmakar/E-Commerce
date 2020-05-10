@@ -1,9 +1,9 @@
-﻿@using X.PagedList.Mvc.Core;
-@using X.PagedList;
-@using X.PagedList.Mvc.Core.Common;
+﻿@using X.PagedList.Mvc.Core.Common;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc;
+@using X.PagedList;  
 @using Models;
-@model IPagedList<Product>;
-
+@model X.PagedList.IPagedList<Product>;
 
 @{
     ViewData["Title"] = "GetProductByCategoryId";
@@ -104,9 +104,14 @@
 <a href="compair.html" class="btn btn-large pull-right">Compair Product</a>
 <div class="pagination">
     <ul>
-        @Html.PagedListPager(Model, page => Url.Action("GetProductByCategoryId", "Product", new { page }),
-            new PagedListRenderOptions() { Display = X.PagedList.Web.Common.PagedListDisplayMode.IfNeeded,
-                DisplayPageCountAndCurrentLocation = true, DisplayItemSliceAndTotal = true })
+        @Html.PagedListPager(Model, page => Url.Action("GetProductByCategoryId", "Product",
+                            new { page = page, id = selectedCategoryInfo.Id }),
+                            new PagedListRenderOptions() 
+                            { 
+                                Display = X.PagedList.Web.Common.PagedListDisplayMode.IfNeeded,
+                                DisplayPageCountAndCurrentLocation = true,
+                                DisplayItemSliceAndTotal = true
+                            })   
     </ul>
 </div>
 <br class="clr">

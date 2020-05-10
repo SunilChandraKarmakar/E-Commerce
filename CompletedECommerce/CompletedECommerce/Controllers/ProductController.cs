@@ -185,7 +185,7 @@ namespace CompletedECommerce.Controllers
             Category selectedCategoryInfo = _iCategoryManager.GetById(id);
             IPagedList<Product> products = _iProductManager.GetAll()
                                             .Where(p => p.CategoryId == id && p.Status == true)
-                                            .ToList().ToPagedList(page ?? 1, 5);
+                                            .ToPagedList(page ?? 1, 6);
             ViewBag.SelectedCategoryInfo = selectedCategoryInfo;
             return View(products);
         }
@@ -196,12 +196,10 @@ namespace CompletedECommerce.Controllers
             string productNameCapitalize = String.Concat(productName.Select((currentChar, index)
                                            => index == 0 ? Char.ToUpper(currentChar) : currentChar));
             IPagedList<Product> searchProducts = _iProductManager.GetAll()
-                                                  .Where(p=>p.Name.Contains(productNameCapitalize) 
-                                                  && p.Status == true)
-                                                  .ToList().ToPagedList(page ?? 1, 6);
+                                                  .Where(p => p.Name.Contains(productNameCapitalize)
+                                                  && p.Status == true).ToPagedList(page ?? 1, 6);
             ViewBag.ProductName = productName;
             return View(searchProducts);
-
         }
     }
 }

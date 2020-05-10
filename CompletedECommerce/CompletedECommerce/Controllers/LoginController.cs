@@ -72,5 +72,43 @@ namespace CompletedECommerce.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult CustomerLogin(string username, string password)
+        {
+            if (ModelState.IsValid)
+            {
+                Account loginCustomerInfo = _iAccountManager.GetAll()
+                                            .Where(a => a.Username == username
+                                            && a.Password == password
+                                            && a.Status == true).FirstOrDefault();
+
+                if (loginCustomerInfo == null)
+                {
+                    ViewBag.ErrorMessage = "Username and password not match! Try again.";
+                    return View("CustomerLogin");
+                }
+
+                RoleAccount aRoleAccountInfo = _iRoleAccountManager.GetAll()
+                                               .Where(ra => ra.RoleId == 2
+                                                      && ra.AccountId == loginCustomerInfo.Id
+                                                      && ra.Status == true).FirstOrDefault();
+
+                if (aRoleAccountInfo != null)
+                {
+                    HttpContext.Session.SetString("CustomerId", loginCustomerInfo.Id.ToString());
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Username and password not match! Try again.";
+                    return View("CustomerLogin");
+                }
+
+            }
+
+            ViewBag.ErrorMessage = "Username and password are not match! Try again";
+            return View("CustomerLogin");
+        }
     }
 }

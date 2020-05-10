@@ -182,6 +182,10 @@ F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECom
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Product\Default.cshtml.g.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\ProductDetails.cshtml.g.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\GetProductByCategoryId.cshtml.g.cs
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\SearchProductByName.cshtml.g.cs
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Login\CustomerLogin.cshtml.g.cs
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CustomerLogin\Default.cshtml.g.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
@@ -192,5 +196,3 @@ F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECom
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\CompletedECommerce.csproj.CoreCompileInputs.cache
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\CompletedECommerce.MvcApplicationPartsAssemblyInfo.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\CompletedECommerce.MvcApplicationPartsAssemblyInfo.cache
-F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\SearchProductByName.cshtml.g.cs
-F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs

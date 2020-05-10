@@ -1,13 +1,14 @@
-﻿@using Models;
+﻿@using X.PagedList.Mvc.Core.Common;
 @using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc;
 @using X.PagedList;
-@using X.PagedList.Mvc.Core.Common;
+@using Models;
 @model IPagedList<Product>;
-
 
 @{
     ViewData["Title"] = "SearchProductByName";
     Layout = "~/Views/Shared/_ClinteLayout.cshtml";
+    string productName = ViewBag.ProductName;
 }
 
 <div class="span9">
@@ -84,13 +85,13 @@
                             <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@searchProduct.Id"><img src="~/@productPhotoName" alt=""></a>
                             <div class="caption">
                                 <h5>@searchProduct.Name</h5>
-                            <h4 style="text-align:center">
-                                <a class="btn" asp-controller="Product" asp-action="ProductDetails" asp-route-id="@searchProduct.Id"><i class="icon-zoom-in"></i></a> 
-                                <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> 
-                                <a class="btn btn-primary" href="#">€@searchProduct.Price</a>
-                            </h4>
+                                <h4 style="text-align:center">
+                                    <a class="btn" asp-controller="Product" asp-action="ProductDetails" asp-route-id="@searchProduct.Id"><i class="icon-zoom-in"></i></a>
+                                    <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a>
+                                    <a class="btn btn-primary" href="#">€@searchProduct.Price</a>
+                                </h4>
+                            </div>
                         </div>
-                    </div>
                     </li>
                 }
             </ul>
@@ -100,14 +101,16 @@
 
     <a href="compair.html" class="btn btn-large pull-right">Compair Product</a>
     <div class="pagination">
-        @Html.PagedListPager(Model, page => Url.Action("SearchProductByName", "Product",
-                new { page = page, productName = ViewBag.ProductName }),
-                new PagedListRenderOptions()
-                {
-                    Display = X.PagedList.Web.Common.PagedListDisplayMode.IfNeeded,
-                    DisplayPageCountAndCurrentLocation = true,
-                    DisplayItemSliceAndTotal = true
-                })
+        <ul>
+            @Html.PagedListPager(Model, page => Url.Action("SearchProductByName", "Product",
+                            new { page = page, productName = ViewBag.ProductName }),
+                            new PagedListRenderOptions()
+                            {
+                                Display = X.PagedList.Web.Common.PagedListDisplayMode.IfNeeded,
+                                DisplayPageCountAndCurrentLocation = true,
+                                DisplayItemSliceAndTotal = true
+                            })
+        </ul>
     </div>
     <br class="clr">
 </div>
