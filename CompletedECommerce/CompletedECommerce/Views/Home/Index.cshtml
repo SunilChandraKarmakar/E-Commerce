@@ -60,7 +60,7 @@
                         <p>Lorem Ipsum is simply dummy text.</p>
                     <h4 style="text-align:center">
                         <a class="btn" asp-controller="Product" asp-action="ProductDetails" asp-route-id="@latestProduct.Id"><i class="icon-zoom-in"></i></a> 
-                        <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> 
+                        <a class="btn" asp-controller="Cart" asp-action="Index" asp-route-id="@latestProduct.Id">Add to <i class="icon-shopping-cart"></i></a> 
                         <a class="btn btn-primary" href="#">$@latestProduct.Price</a>
                     </h4>
                 </div>

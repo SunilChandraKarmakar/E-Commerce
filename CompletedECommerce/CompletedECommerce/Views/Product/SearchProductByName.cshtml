@@ -62,8 +62,8 @@
                                 <input type="checkbox">  Adds product to compair
                             </label><br>
 
-                            <a href="product_details.html" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-                            <a href="product_details.html" class="btn btn-large"><i class="icon-zoom-in"></i></a>
+                            <a asp-controller="Cart" asp-action="Index" asp-route-id="@searchProduct.Id" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
+                            <a asp-controller="Cart" asp-action="Index" asp-route-id="@searchProduct.Id" class="btn btn-large"><i class="icon-zoom-in"></i></a>
 
                         </form>
                     </div>
@@ -87,7 +87,7 @@
                                 <h5>@searchProduct.Name</h5>
                                 <h4 style="text-align:center">
                                     <a class="btn" asp-controller="Product" asp-action="ProductDetails" asp-route-id="@searchProduct.Id"><i class="icon-zoom-in"></i></a>
-                                    <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a>
+                                    <a class="btn" asp-controller="Cart" asp-action="Index" asp-route-id="@searchProduct.Id">Add to <i class="icon-shopping-cart"></i></a>
                                     <a class="btn btn-primary" href="#">€@searchProduct.Price</a>
                                 </h4>
                             </div>

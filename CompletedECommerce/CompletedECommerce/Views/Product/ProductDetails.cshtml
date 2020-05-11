@@ -47,7 +47,7 @@
                 <label class="control-label"><span>$@Model.Price</span></label>
                 <div class="controls">
                     <input type="number" min="1" value="1" class="span1" placeholder="Qty.">
-                    <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart <i class=" icon-shopping-cart"></i></button>
+                    <button type="submit" asp-controller="Cart" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-large btn-primary pull-right"> Add to cart <i class=" icon-shopping-cart"></i></button>
                 </div>
             </div>
         </form>
@@ -105,8 +105,8 @@
                                             <input type="checkbox">  Adds product to compair
                                         </label><br>
                                         <div class="btn-group">
-                                            <a href="product_details.html" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-                                            <a href="product_details.html" class="btn btn-large"><i class="icon-zoom-in"></i></a>
+                                            <a asp-controller="Cart" asp-action="Index" asp-route-id="@product.Id" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
+                                            <a asp-controller="Cart" asp-action="Index" asp-route-id="@product.Id" class="btn btn-large"><i class="icon-zoom-in"></i></a>
                                         </div>
                                     </form>
                                 </div>
@@ -129,7 +129,7 @@
                                             <h5>@product.Name</h5>
                                             <h4 style="text-align:center">
                                                 <a class="btn" asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id"><i class="icon-zoom-in"></i></a>
-                                                <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a>
+                                                <a class="btn" asp-controller="Cart" asp-action="Index" asp-route-id="@product.Id">Add to <i class="icon-shopping-cart"></i></a>
                                                 <a class="btn btn-primary" href="#">€@product.Price</a>
                                             </h4>
                                         </div>
