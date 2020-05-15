@@ -37,7 +37,7 @@ namespace CompletedECommerce.Controllers
         }    
         
         [HttpGet]
-        public IActionResult AddProduct(int? id)
+        public IActionResult AddProduct(int? id, int? quantity)
         {
             if(HttpContext.Session.GetString("CustomerId") != null)
             {
@@ -60,17 +60,45 @@ namespace CompletedECommerce.Controllers
                 if(existProduct != null)
                 {
                     addProducts.Remove(existProduct);
-                    existProduct.Quantity += 1;                     
+
+                    if (quantity == null)
+                        existProduct.Quantity += 1;
+                    else
+                        existProduct.Quantity = (int)quantity + 1;
+
                     addProducts.Add(existProduct);
                     HttpContext.Session.Set("AddProducts", addProducts);
                 }
                 else
                 {
-                    selectedProductInfo.Quantity = 1;
+                    if (quantity == null)
+                        selectedProductInfo.Quantity = 1;
+                    else
+                        selectedProductInfo.Quantity = (int)quantity;
+
                     addProducts.Add(selectedProductInfo);
                     HttpContext.Session.Set("AddProducts", addProducts);
                 }                                                                      
               
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("CustomerLogin", "Login");
+        }
+
+        [HttpGet]
+        public IActionResult Remove(int? id)
+        {
+            if(HttpContext.Session.GetString("CustomerId") != null)
+            {
+                if (id == null)
+                    return NotFound();
+
+                List<Product> products = HttpContext.Session.Get<List<Product>>("AddProducts");
+                Product existProduct = products.Where(p => p.Id == id).FirstOrDefault();
+                products.Remove(existProduct);
+                HttpContext.Session.Set("AddProducts", products);
+
                 return RedirectToAction("Index");
             }
 

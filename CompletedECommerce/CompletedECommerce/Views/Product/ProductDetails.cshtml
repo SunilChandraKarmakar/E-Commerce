@@ -42,11 +42,11 @@
     <div class="span6">
         <h3>@Model.Name</h3>
         <hr class="soft">
-        <form class="form-horizontal qtyFrm">
+        <form method="get" asp-controller="Cart" asp-action="AddProduct" asp-route-quantity="quantity" class="form-horizontal qtyFrm">
             <div class="control-group">
                 <label class="control-label"><span>$@Model.Price</span></label>
                 <div class="controls">
-                    <input type="number" min="1" value="1" class="span1" placeholder="Qty.">
+                    <input type="number" min="1" value="1" name="quantity" class="span1" placeholder="Qty.">
                     <button type="submit" asp-controller="Cart" asp-action="AddProduct" asp-route-id="@Model.Id" class="btn btn-large btn-primary pull-right"> Add to cart <i class=" icon-shopping-cart"></i></button>
                 </div>
             </div>

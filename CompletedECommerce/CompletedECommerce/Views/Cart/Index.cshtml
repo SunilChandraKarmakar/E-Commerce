@@ -39,10 +39,13 @@
                 <td>@product.Name</td>
                 <td>
                     <div class="input-append">
-                        <input class="span1" value="@product.Quantity" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text">
-                            <button class="btn btn-danger" type="button">
-                                <i class="icon-remove icon-white"></i>
-                            </button>
+                        <input class="span1" value="@product.Quantity" name="quantity" style="max-width:34px" id="appendedInputButtons" size="16" type="number">
+                        <a asp-controller="Cart" asp-action="Update" asp-route-id="@product.Id" name="quantity" class="btn btn-danger">
+                            <i class="icon-pencil"></i>
+                        </a>
+                        <a asp-controller="Cart" asp-action="Remove" asp-route-id="@product.Id" class="btn btn-danger">
+                            <i class="icon-remove icon-white"></i>
+                        </a>
                     </div>
                 </td>
                 <td>$@product.Price</td>
