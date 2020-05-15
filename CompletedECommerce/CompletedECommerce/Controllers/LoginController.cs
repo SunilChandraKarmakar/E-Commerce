@@ -6,7 +6,9 @@ using CompletedECommerce.Manager.Contracts;
 using CompletedECommerce.Views.ModelView;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Models;
+using Newtonsoft.Json;
 
 namespace CompletedECommerce.Controllers
 {

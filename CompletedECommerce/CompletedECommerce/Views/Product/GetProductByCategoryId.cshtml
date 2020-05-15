@@ -64,7 +64,7 @@
                             <input type="checkbox">  Adds product to compair
                         </label><br>
 
-                        <a asp-controller="Cart" asp-action="Index" asp-route-id="@product.Id" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
+                        <a asp-controller="Cart" asp-action="AddProduct" asp-route-id="@product.Id" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
                         <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id" class="btn btn-large"><i class="icon-zoom-in"></i></a>
 
                     </form>
@@ -89,7 +89,7 @@
                             <h5>@product.Name</h5>
                             <h4 style="text-align:center">
                                 <a class="btn" asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id"> <i class="icon-zoom-in"></i></a>
-                                <a class="btn" asp-controller="Cart" asp-action="Index" asp-route-id="@product.Id">Add to <i class="icon-shopping-cart"></i></a>
+                                <a class="btn" asp-controller="Cart" asp-action="AddProduct" asp-route-id="@product.Id">Add to <i class="icon-shopping-cart"></i></a>
                                 <a class="btn btn-primary" href="#">€@product.Price</a>
                             </h4>
                         </div>

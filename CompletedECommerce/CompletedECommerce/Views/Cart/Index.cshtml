@@ -1,7 +1,11 @@
-﻿
+﻿@using Models;
+@model ICollection<Product>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_ClinteLayout.cshtml";
+    CompletedECommerce.Databse.ECommerceDb ecommerceDb = new CompletedECommerce.Databse.ECommerceDb();
+    float totalPrice = 0;
 }
 
 
@@ -9,7 +13,7 @@
     <li><a asp-controller="Home" asp-action="Index">Home</a> <span class="divider">/</span></li>
     <li class="active"> SHOPPING CART</li>
 </ul>
-<h3>  SHOPPING CART [ <small>3 Item(s) </small>]<a asp-controller="Home" asp-action="Index" class="btn btn-large pull-right"><i class="icon-arrow-left"></i> Continue Shopping </a></h3>
+<h3>  SHOPPING CART [ <small>@Model.Count() Items </small>]<a asp-controller="Home" asp-action="Index" class="btn btn-large pull-right"><i class="icon-arrow-left"></i> Continue Shopping </a></h3>
 <hr class="soft">
 
 <table class="table table-bordered">
@@ -23,18 +27,37 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td> <img width="60" src="themes/images/products/4.jpg" alt=""></td>
-            <td>MASSA AST<br>Color : black, Material : metal</td>
-            <td>
-                <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text"><button class="btn" type="button"><i class="icon-minus"></i></button><button class="btn" type="button"><i class="icon-plus"></i></button><button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>				</div>
-            </td>
-            <td>$120.00</td>
-            <td>$25.00</td>
-        </tr>
+        @foreach (Product product in Model)
+        {
+            ProductPhoto aProductPhoto = ecommerceDb.ProductPhotos
+                                        .Where(pp => pp.ProductId == product.Id && pp.Featured == true)
+                                        .FirstOrDefault();
+            var productPhotoName = aProductPhoto == null ? "SlideShow/NoImageFound.png" : aProductPhoto.Photo;
+
+            <tr>
+                <td> <img width="60" src="~/@productPhotoName" alt=""></td>
+                <td>@product.Name</td>
+                <td>
+                    <div class="input-append">
+                        <input class="span1" value="@product.Quantity" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text">
+                            <button class="btn btn-danger" type="button">
+                                <i class="icon-remove icon-white"></i>
+                            </button>
+                    </div>
+                </td>
+                <td>$@product.Price</td>
+                <td>
+                    @{
+                        float subTotalPrice = product.Quantity * product.Price;
+                        totalPrice = subTotalPrice + totalPrice;
+                    }
+                    $@subTotalPrice
+                </td>
+            </tr>
+        }
         <tr>
             <td colspan="4" style="text-align:right"><strong>TOTAL =</strong></td>
-            <td class="label label-important" style="display:block"> <strong> $155.00 </strong></td>
+            <td class="label label-important" style="display:block"> <strong> $@totalPrice </strong></td>
         </tr>
     </tbody>
 </table>

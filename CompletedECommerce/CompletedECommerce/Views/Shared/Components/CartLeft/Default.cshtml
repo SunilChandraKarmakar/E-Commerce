@@ -1,9 +1,20 @@
-﻿
+﻿@using Models;
 @{
     Layout = null;
+    List<Product> products = Context.Session.Get<List<Product>>("AddProducts");
+
+    if (products == null)
+        products = new List<Product>();
+
+    float totalPrice = 0;
+    foreach (Product product in products)
+    {
+        float subTotalPrice = product.Quantity * product.Price;
+        totalPrice = subTotalPrice + totalPrice;
+    }
 }
 
     <a id="myCart" asp-controller="Cart" asp-action="Index">
-        <img src="~/themes/images/ico-cart.png" alt="cart">3 Items in your cart
-        <span class="badge badge-warning pull-right">$155.00</span>
+        <img src="~/themes/images/ico-cart.png" alt="cart">@products.Count() Items in your cart
+        <span class="badge badge-warning pull-right">$@totalPrice</span>
     </a>

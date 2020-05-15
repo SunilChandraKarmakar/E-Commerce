@@ -1,14 +1,25 @@
-﻿
+﻿@using Models;
 @{
     Layout = null;
+    List<Product> products = Context.Session.Get<List<Product>>("AddProducts");
+
+    if (products == null)
+        products = new List<Product>();
+
+    float totalPrice = 0;
+    foreach (Product product in products)
+    {
+        float subTotalPrice = product.Quantity * product.Price;
+        totalPrice = subTotalPrice + totalPrice;
+    }
 }
 
 <div class="pull-right">
-    <a href="product_summary.html"><span class="">Fr</span></a>
-    <a href="product_summary.html"><span class="">Es</span></a>
-    <span class="btn btn-mini">En</span>
-    <a href="product_summary.html"><span>&pound;</span></a>
-    <span class="btn btn-mini">$155.00</span>
-    <a href="product_summary.html"><span class="">$</span></a>
-    <a asp-controller="Cart" asp-action="Index"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Itemes in your cart </span> </a>
+    <span class="btn btn-mini">$@totalPrice</span>
+    <a asp-controller="Cart" asp-action="Index">
+        <span class="btn btn-mini btn-primary">
+            <i class="icon-shopping-cart icon-white"></i> 
+            [ @products.Count() ] Itemes in your cart 
+        </span> 
+    </a>
 </div>

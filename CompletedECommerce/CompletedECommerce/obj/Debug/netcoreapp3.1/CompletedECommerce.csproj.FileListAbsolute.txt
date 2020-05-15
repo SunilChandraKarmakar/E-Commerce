@@ -193,9 +193,6 @@ F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECom
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\bin\Debug\netcoreapp3.1\X.PagedList.dll
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\bin\Debug\netcoreapp3.1\X.PagedList.Web.Common.dll
-F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\CompletedECommerce.csproj.CoreCompileInputs.cache
-F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\CompletedECommerce.MvcApplicationPartsAssemblyInfo.cs
-F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\CompletedECommerce.MvcApplicationPartsAssemblyInfo.cache
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\ClinteDeshboard\Index.cshtml.g.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\ClinteDeshboard\Profile.cshtml.g.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
@@ -203,3 +200,6 @@ F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECom
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Index.cshtml.g.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CartTop\Default.cshtml.g.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CartLeft\Default.cshtml.g.cs
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\CompletedECommerce.csproj.CoreCompileInputs.cache
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\CompletedECommerce.MvcApplicationPartsAssemblyInfo.cs
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\CompletedECommerce.MvcApplicationPartsAssemblyInfo.cache
