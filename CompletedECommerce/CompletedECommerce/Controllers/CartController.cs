@@ -64,7 +64,7 @@ namespace CompletedECommerce.Controllers
                     if (quantity == null)
                         existProduct.Quantity += 1;
                     else
-                        existProduct.Quantity = (int)quantity + 1;
+                        existProduct.Quantity = existProduct.Quantity + (int)quantity;
 
                     addProducts.Add(existProduct);
                     HttpContext.Session.Set("AddProducts", addProducts);
@@ -99,6 +99,25 @@ namespace CompletedECommerce.Controllers
                 products.Remove(existProduct);
                 HttpContext.Session.Set("AddProducts", products);
 
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("CustomerLogin", "Login");
+        }
+
+        [HttpPost]
+        public IActionResult Update(int[] quantity)
+        {
+            if(HttpContext.Session.GetString("CustomerId") != null)
+            {   
+                List<Product> addProductList = HttpContext.Session.Get<List<Product>>("AddProducts");
+
+                for (int i = 0; i < addProductList.Count(); i++)
+                {
+                    addProductList[i].Quantity = quantity[i];
+                }
+
+                HttpContext.Session.Set("AddProducts", addProductList);
                 return RedirectToAction("Index");
             }
 
