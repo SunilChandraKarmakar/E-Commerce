@@ -87,6 +87,11 @@
     </tbody>
 </table>
 
-<a asp-controller="Home" asp-action="Index" class="btn btn-large"><i class="icon-arrow-left"></i> Continue Shopping </a>
-<a asp-controller="Cart" asp-action="Checkout" class="btn btn-large pull-right">Check out <i class="icon-arrow-right"></i></a>
+<span class="text-danger">@ViewBag.ErrorMessage</span>
 
+<a asp-controller="Home" asp-action="Index" class="btn btn-large"><i class="icon-arrow-left"></i> Continue Shopping </a>
+
+@if (Model.Count() > 0)
+{
+    <a asp-controller="Cart" asp-action="Checkout" class="btn btn-large pull-right">Check out <i class="icon-arrow-right"></i></a>
+}

@@ -14,10 +14,15 @@ namespace CompletedECommerce.Controllers
     public class CartController : Controller
     {
         private readonly IProductManager _iProductManager;
+        private readonly IInvoiceManager _iInvoiceManager;
+        private readonly IInvoiceDetailsManager _iInvoiceDetailsManager;
 
-        public CartController(IProductManager iProductManager)
+        public CartController(IProductManager iProductManager, IInvoiceManager iInvoiceManager,
+                                IInvoiceDetailsManager iInvoiceDetailsManager)
         {
             _iProductManager = iProductManager;
+            _iInvoiceManager = iInvoiceManager;
+            _iInvoiceDetailsManager = iInvoiceDetailsManager;
         }
 
         [HttpGet]
@@ -129,7 +134,45 @@ namespace CompletedECommerce.Controllers
         {
             if(HttpContext.Session.GetString("CustomerId") != null)
             {
-                return RedirectToAction("Thanks");
+                string loginCustomerId = HttpContext.Session.GetString("CustomerId");
+                int conIntloginCustomerId = Convert.ToInt32(loginCustomerId);
+                                
+                Invoice customerInvoice = new Invoice()
+                {
+                    AccountId = conIntloginCustomerId,
+                    Date = DateTime.Now.Date,
+                    Name = "Order Invoice",
+                    Status = false
+                };
+                                
+                bool isSaveCustomerInvoice = _iInvoiceManager.Add(customerInvoice);
+                bool isSaveCustomerInvoiceDetails = false;
+                Invoice lastCustomerInvoice = _iInvoiceManager.GetAll().LastOrDefault();
+
+                List<Product> addProducts = HttpContext.Session.Get<List<Product>>("AddProducts");
+                foreach (Product product in addProducts)
+                {
+                    InvoiceDetails customerInvoiceDetails = new InvoiceDetails()
+                    {
+                        InvoiceId = lastCustomerInvoice.Id,
+                        Price = product.Price,
+                        ProductId = product.Id,
+                        Quantity = product.Quantity
+                    };
+
+                    isSaveCustomerInvoiceDetails = _iInvoiceDetailsManager.Add(customerInvoiceDetails);
+                }
+
+                if(isSaveCustomerInvoice && isSaveCustomerInvoiceDetails)
+                {
+                    HttpContext.Session.Remove("AddProducts");
+                    return RedirectToAction("Thanks");
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Chack out is failed! Try Again";
+                    return View("Index");
+                }
             }
 
             return RedirectToAction("CustomerLogin", "Login");
