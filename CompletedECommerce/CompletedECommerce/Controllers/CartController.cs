@@ -123,5 +123,27 @@ namespace CompletedECommerce.Controllers
 
             return RedirectToAction("CustomerLogin", "Login");
         }
+
+        [HttpGet]
+        public IActionResult Checkout()
+        {
+            if(HttpContext.Session.GetString("CustomerId") != null)
+            {
+                return RedirectToAction("Thanks");
+            }
+
+            return RedirectToAction("CustomerLogin", "Login");
+        }
+
+        [HttpGet]
+        public IActionResult Thanks()
+        {
+            if(HttpContext.Session.GetString("CustomerId") != null)
+            {
+                return View();
+            }
+
+            return RedirectToAction("CustomerLogin", "Login");
+        }
     }
 }

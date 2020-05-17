@@ -16,6 +16,8 @@ namespace CompletedECommerce.Databse
         public DbSet<SlideShow> SlideShows { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductPhoto> ProductPhotos { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<InvoiceDetails> InvoiceDetails { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -36,5 +36,6 @@ namespace Models
 
         public Category Category { get; set; }
         public ICollection<ProductPhoto> ProductPhotos { get; set; }
+        public ICollection<InvoiceDetails> InvoiceDetails { get; set; }
     }
 }

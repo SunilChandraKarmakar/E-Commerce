@@ -39,5 +39,6 @@ namespace Models
         public bool Status { get; set; }
 
         public ICollection<RoleAccount> RoleAccounts { get; set; }
+        public ICollection<Invoice> Invoices { get; set; }
     }
 }
