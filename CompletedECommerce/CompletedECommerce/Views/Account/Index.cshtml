@@ -21,9 +21,8 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>User Name</th>
-                                <th>Full Name</th>
-                                <th>Email</th>
+                                <th>Basic Info</th>
+                                <th>Contact</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -33,9 +32,17 @@
                             {
                                 <tr>
                                     <td>@roleAccount.Id</td>
-                                    <td>@roleAccount.Account.Username</td>
-                                    <td>@roleAccount.Account.FullName</td>
-                                    <td>@roleAccount.Account.Email</td>
+                                    <td>
+                                        Username : @roleAccount.Account.Username <br />
+                                        Full name : @roleAccount.Account.FullName <br />
+                                    </td>
+                                    <td>
+                                        Email : @roleAccount.Account.Email <br />
+                                        Phone : @roleAccount.Account.Phone <br />
+                                        <address>
+                                            <b>@roleAccount.Account.Address</b>
+                                        </address>
+                                    </td>
                                     <td>@(roleAccount.Account.Status == true ? "Active" : "InActive")</td>
                                     <td>
                                         <a asp-action="Edit" asp-route-id="@roleAccount.Id" class="btn btn-info">Edit</a> |

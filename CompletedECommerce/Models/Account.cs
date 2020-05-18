@@ -35,6 +35,16 @@ namespace Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "Provied phone number.")]
+        [DataType(DataType.PhoneNumber)]
+        [StringLength(14, MinimumLength = 11)]
+        public string Phone { get; set; }
+
+        [Required(ErrorMessage = "Provied your address.")]
+        [StringLength(1000, MinimumLength = 2)]
+        [DataType(DataType.MultilineText)]
+        public string Address { get; set; }
+
         [Required(ErrorMessage = "Provied status.")]
         public bool Status { get; set; }
 

@@ -34,6 +34,13 @@
             </div>
         </div>
         <div class="control-group">
+            <label asp-for="@Model.Phone" class="control-label">Phone <sup>*</sup></label>
+            <div class="controls">
+                <input type="number" asp-for="@Model.Phone" placeholder="Phone">
+                <span asp-validation-for="@Model.Phone" class="alert-block alert-error fade in"></span>
+            </div>
+        </div>
+        <div class="control-group">
             <label asp-for="@Model.Password" class="control-label">Password <sup>*</sup></label>
             <div class="controls">
                 <input type="password" asp-for="@Model.Password" placeholder="Password">
@@ -47,7 +54,13 @@
                 <span asp-validation-for="@Model.ConfirmPassword" class="alert-block alert-error fade in"></span>
             </div>
         </div>
-
+        <div class="control-group">
+            <label asp-for="@Model.Address" class="control-label">Address <sup>*</sup></label>
+            <div class="controls">
+                <textarea asp-for="@Model.Address" placeholder="Type address" ></textarea>
+                <span asp-validation-for="@Model.Address" class="alert-block alert-error fade in"></span>
+            </div>
+        </div>
         <div class="control-group">
             <div class="controls">
                 <span class="text-danger">@ViewBag.ErrorMessage</span>

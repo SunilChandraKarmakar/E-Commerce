@@ -34,7 +34,8 @@
                 <td>@invoice.Date</td>
                 <td>@(invoice.Status == false ? "Panding" : "Accept")</td>
                 <td>
-                    <a asp-controller="Account" asp-action="Details" asp-route-id="@invoice.Id">Details</a>
+                    <a asp-controller="Account" asp-action="Details" asp-route-id="@invoice.Id"
+                       class="btn btn-info">Details</a>
                 </td>
             </tr>
         }

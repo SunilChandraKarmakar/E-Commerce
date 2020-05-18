@@ -23,7 +23,7 @@ namespace CompletedECommerce.Databse
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Role>().HasIndex(r => r.Name).IsUnique();
-            modelBuilder.Entity<Account>().HasIndex(a => new { a.Username, a.Email }).IsUnique();
+            modelBuilder.Entity<Account>().HasIndex(a => new { a.Username, a.Email, a.Phone }).IsUnique();
             modelBuilder.Entity<Category>().HasIndex(c => c.Name).IsUnique();
             modelBuilder.Entity<Product>().HasIndex(p => p.Name).IsUnique();
 
