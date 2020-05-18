@@ -7,6 +7,7 @@
 
 
   <ItemGroup>
+    <Folder Include="wwwroot\productphotos\" />
     <Folder Include="wwwroot\themes\less\oregional\" />
   </ItemGroup>
 
