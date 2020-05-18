@@ -1,0 +1,112 @@
+﻿@using Models;
+@model ICollection<InvoiceDetails>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    Invoice invoiceInfo = ViewBag.InvoiceInfo;
+    Account accountInfo = ViewBag.AccountInfo;
+    float subTotal = 0;
+    float totalAmount = 0;
+}
+
+<section class="content-header">
+    <h1>
+        Invoice
+        <small>@invoiceInfo.Id</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li>
+            <a asp-controller="Dashboard" asp-action="Index" >
+                <i class="fa fa-dashboard"></i> Home
+            </a>
+        </li>
+        <li class="active">Invoice Details</li>
+    </ol>
+</section>
+
+<section class="invoice">
+    <!-- title row -->
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="page-header">
+                <i class="fa fa-globe"></i> @invoiceInfo.Name
+                <small class="pull-right">Date: @invoiceInfo.Date.ToString("MM/dd/yy")</small>
+            </h2>
+        </div><!-- /.col -->
+    </div>
+    <!-- info row -->
+    <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+            To
+            <address>
+                <strong>@accountInfo.FullName</strong><br>
+                @accountInfo.Address<br>
+                Phone: @accountInfo.Phone<br>
+                Email: @accountInfo.Email
+            </address>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+    <!-- Table row -->
+    <div class="row">
+        <div class="col-xs-12 table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Sub Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (InvoiceDetails invoiceDetails in Model)
+                    {
+                        <tr>
+                            <td>@invoiceDetails.Product.Name</td>
+                            <td>@invoiceDetails.Price</td>
+                            <td>@invoiceDetails.Quantity</td>
+                            <td>
+                                @{
+                                    subTotal = invoiceDetails.Price * invoiceDetails.Quantity;
+                                    totalAmount = totalAmount + subTotal;
+                                }
+                                @subTotal
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+
+    <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-xs-6 pull-right">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Total:</th>
+                            <td><b>$@totalAmount</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+    <!-- this row will not appear when printing -->
+    @if (invoiceInfo.Status == false)
+    {
+        <div class="row no-print">
+            <div class="col-xs-12">
+                <form method="post" asp-controller="InvoiceManagement" asp-action="SubmitPayment" asp-route-id="@invoiceInfo.Id">
+                    <button type="submit" class="btn btn-success pull-right">
+                        <i class="fa fa-credit-card"></i> Submit Payment
+                    </button>
+                </form>
+            </div>
+        </div>
+    }
+</section>
+
