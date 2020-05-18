@@ -13,11 +13,17 @@ namespace CompletedECommerce.Controllers
     {
         private readonly IAccountManager _iAccountManager;
         private readonly IRoleAccountManager _iRoleAccountManager;
+        private readonly IInvoiceManager _iInvoiceManager;
+        private readonly IInvoiceDetailsManager _iInvoiceDetailsManager;
 
-        public AccountController(IAccountManager iAccountManager,IRoleAccountManager iRoleAccountManager)
+        public AccountController(IAccountManager iAccountManager,
+                                IRoleAccountManager iRoleAccountManager, IInvoiceManager iInvoiceManager,
+                                IInvoiceDetailsManager iInvoiceDetailsManager)
         {
             _iAccountManager = iAccountManager;
             _iRoleAccountManager = iRoleAccountManager;
+            _iInvoiceManager = iInvoiceManager;
+            _iInvoiceDetailsManager = iInvoiceDetailsManager;
         }
 
         [HttpGet]
@@ -170,5 +176,37 @@ namespace CompletedECommerce.Controllers
             ViewBag.ErrorMessage = "Customer account update failed! Try again";
             return View(accountDetails);
         }
-    }
+
+        [HttpGet]
+        public IActionResult InvoiceHistory()
+        {
+            if(HttpContext.Session.GetString("CustomerId") != null)
+            {
+                string loginCustomerId = HttpContext.Session.GetString("CustomerId");
+                ICollection<Invoice> customerInvoices = _iInvoiceManager.GetAll()
+                                                .Where(i => i.AccountId == 
+                                                       Convert.ToInt32(loginCustomerId)).ToList();
+                return View(customerInvoices);
+            }
+
+            return RedirectToAction("CustomerLogin", "Login");
+        }
+
+        [HttpGet]
+        public IActionResult Details(int? id)
+        {
+            if(HttpContext.Session.GetString("CustomerId") != null)
+            {
+                if (id == null)
+                    return NotFound();
+
+                ICollection<InvoiceDetails> customerInvoiceDetails = _iInvoiceDetailsManager.GetAll()
+                                                                     .Where(ide => ide.InvoiceId == id)
+                                                                     .ToList();
+                return View(customerInvoiceDetails);
+            }
+
+            return RedirectToAction("CustomerLogin", "Login");
+        }
+    }    
 }

@@ -1,0 +1,43 @@
+﻿@using Models;
+@model ICollection<Invoice>
+
+@{
+    ViewData["Title"] = "InvoiceHistory";
+    Layout = "~/Views/Shared/_ClinteLayout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a asp-controller="Home" asp-action="Index">Home</a> <span class="divider">/</span></li>
+    <li class="active">Invoice History</li>
+</ul>
+
+<section class="content-header" style="margin-bottom: 30px">
+    <h1>
+        Invoice History
+    </h1>
+</section>
+
+<table id="myTable" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Invoice invoice in Model)
+        {
+            <tr>
+                <td>@invoice.Name</td>
+                <td>@invoice.Date</td>
+                <td>@(invoice.Status == false ? "Panding" : "Accept")</td>
+                <td>
+                    <a asp-controller="Account" asp-action="Details" asp-route-id="@invoice.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

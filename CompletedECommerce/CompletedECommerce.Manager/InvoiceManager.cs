@@ -16,5 +16,10 @@ namespace CompletedECommerce.Manager
         {
             _iInvoiceRepository = iInvoiceRepository;
         }
+
+        public override ICollection<Invoice> GetAll()
+        {
+            return _iInvoiceRepository.GetAll();
+        }
     }
 }
