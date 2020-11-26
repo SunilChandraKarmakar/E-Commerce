@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dzmesTIrjqcciQpZspyzZqhHbolofOPl5IUOcymFufQ5lVcJVy0jpip0XZ7v6nopQDX64MZD3Ql3tb2fd/yPhQ==",
+  "dgSpecHash": "N+cSKy7AyqqXuNXI1yOO9Y29Z/ASmEu7zfPSBXhl/wwRRnwjHEi60bhDD6BR2H3SfzHYbqUaeLb6LcqMMyjZ4g==",
   "success": true,
   "projectFilePath": "F:\\C# Project\\Web Application - CORE\\E-Commerce\\CompletedECommerce\\CompletedECommerce\\CompletedECommerce.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Sunil\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\Sunil\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\Sunil\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Sunil\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

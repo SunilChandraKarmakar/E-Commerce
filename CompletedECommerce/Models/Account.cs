@@ -19,7 +19,7 @@ namespace Models
         public string FullName { get; set; }
 
         [Required(ErrorMessage = "Provied password.")]
-        [StringLength(50, MinimumLength = 5)]
+        [StringLength(1000, MinimumLength = 5)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

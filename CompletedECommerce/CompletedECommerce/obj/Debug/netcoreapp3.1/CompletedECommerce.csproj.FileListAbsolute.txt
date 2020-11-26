@@ -209,3 +209,4 @@ F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECom
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\InvoiceManagement\Details.cshtml.g.cs
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\scopedcss\bundle\CompletedECommerce.styles.css
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\SearchProductByPrice.cshtml.g.cs
+F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce\bin\Debug\netcoreapp3.1\BCrypt.Net-Next.dll

@@ -85,13 +85,14 @@ namespace CompletedECommerce.Controllers
 
         [HttpPost]
         public IActionResult Register(Account aAccountInfo)
-        {
-            aAccountInfo.Status = true;
-            
+        {   
             if(ModelState.IsValid)
             {
+                aAccountInfo.Status = true;
+                aAccountInfo.Password = BCrypt.Net.BCrypt.HashPassword(aAccountInfo.Password);
                 bool isSaveAccount = _iAccountManager.Add(aAccountInfo);
                 Account lastAddAccountInfo = _iAccountManager.GetAll().LastOrDefault();
+               
                 RoleAccount initialRoleAccount = new RoleAccount()
                 {
                     RoleId = 2,

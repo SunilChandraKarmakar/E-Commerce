@@ -4,14 +4,16 @@ using CompletedECommerce.Databse;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CompletedECommerce.Databse.Migrations
 {
     [DbContext(typeof(ECommerceDb))]
-    partial class ECommerceDbModelSnapshot : ModelSnapshot
+    [Migration("20201126154254_UpdateAccountModel")]
+    partial class UpdateAccountModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

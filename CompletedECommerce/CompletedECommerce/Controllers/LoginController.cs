@@ -86,12 +86,12 @@ namespace CompletedECommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                Account loginCustomerInfo = _iAccountManager.GetAll()
-                                            .Where(a => a.Username == username
-                                            && a.Password == password
-                                            && a.Status == true).FirstOrDefault();
+                Account existAccount = _iAccountManager.GetAll().Where(a => a.Username == username 
+                                                                && a.Status == true).FirstOrDefault();
 
-                if (loginCustomerInfo == null)
+                bool isValidPassword = BCrypt.Net.BCrypt.Verify(password, existAccount.Password);
+               
+                if (!isValidPassword && existAccount == null)
                 {
                     ViewBag.ErrorMessage = "Username and password not match! Try again.";
                     return View("CustomerLogin");
@@ -99,12 +99,12 @@ namespace CompletedECommerce.Controllers
 
                 RoleAccount aRoleAccountInfo = _iRoleAccountManager.GetAll()
                                                .Where(ra => ra.RoleId == 2
-                                                      && ra.AccountId == loginCustomerInfo.Id
+                                                      && ra.AccountId == existAccount.Id
                                                       && ra.Status == true).FirstOrDefault();
 
                 if (aRoleAccountInfo != null)
                 {
-                    HttpContext.Session.SetString("CustomerId", loginCustomerInfo.Id.ToString());
+                    HttpContext.Session.SetString("CustomerId", existAccount.Id.ToString());
                     return RedirectToAction("Index", "ClinteDeshboard");
                 }
                 else
