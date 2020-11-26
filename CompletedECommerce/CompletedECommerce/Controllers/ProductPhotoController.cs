@@ -168,15 +168,24 @@ namespace CompletedECommerce.Controllers
                                                                       .Where(ph => ph.ProductId 
                                                                                 == selectedProductPhoto.ProductId)
                                                                       .ToList();
-                ProductPhoto selectedFeaturedProductPhoto = productPhotosByCategoryId
-                                                            .Where(ph => ph.Featured == true).FirstOrDefault();
-                selectedFeaturedProductPhoto.Featured = false;
-                selectedProductPhoto.Featured = true;
+                bool isUpdateSelectedFeaturedProductPhoto = false;
+                bool isUpdateCreateFeaturedProductPhoto = false;
+                ProductPhoto selectedFeaturedProductPhoto = new ProductPhoto();
 
-                bool isUpdateSelectedFeaturedProductPhoto = _iProductPhotoManager.Update(selectedProductPhoto);
-                bool isUpdateCreateFeaturedProductPhoto = _iProductPhotoManager.Update(selectedFeaturedProductPhoto);
+                if (productPhotosByCategoryId.Count == 1)
+                    selectedProductPhoto.Featured = true;
+                else
+                {
+                    selectedFeaturedProductPhoto = productPhotosByCategoryId
+                                                           .Where(ph => ph.Featured == true).FirstOrDefault();
+                    selectedFeaturedProductPhoto.Featured = false;
+                    selectedProductPhoto.Featured = true;
+                    isUpdateCreateFeaturedProductPhoto = _iProductPhotoManager.Update(selectedFeaturedProductPhoto);
+                }
 
-                if (isUpdateCreateFeaturedProductPhoto == true && isUpdateSelectedFeaturedProductPhoto == true)
+                isUpdateSelectedFeaturedProductPhoto = _iProductPhotoManager.Update(selectedProductPhoto);                
+
+                if (isUpdateCreateFeaturedProductPhoto == true || isUpdateSelectedFeaturedProductPhoto == true)
                     return RedirectToAction("AllProductImage", "Product", new { id = selectedProductPhoto.ProductId });
                 else
                 {

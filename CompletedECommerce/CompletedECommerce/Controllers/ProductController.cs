@@ -201,5 +201,18 @@ namespace CompletedECommerce.Controllers
             ViewBag.ProductName = productName;
             return View(searchProducts);
         }
+
+        [HttpGet]
+        public IActionResult SearchProductByPrice(int startingPrice, int endingPrice)
+        {
+            if(ModelState.IsValid)
+            {
+                ICollection<Product> searchProductByPrice = _iProductManager.GetAll()
+                    .Where(p => p.Price >= startingPrice && p.Price <= endingPrice).ToList();
+                return View(searchProductByPrice);
+            }
+
+            return BadRequest();
+        }
     }
 }

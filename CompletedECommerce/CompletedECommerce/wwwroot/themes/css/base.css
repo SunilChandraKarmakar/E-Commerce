@@ -2,7 +2,7 @@
 #carouselBlk,#header{background: url(../images/headerRepeat.png) repeat-x 0 0 #f7f7f7;}
 #srchFld {
     background: url(../images/search.png) no-repeat 4px center #fff;
-    padding-left:30px;
+    padding-left: 30px;
 }
 .tag {background:url(../images/new.png) no-repeat 0 0; position: absolute; display:block; top: -4px;right: -18px; height:48px; width:48px;}
 .clr{clear:both;}

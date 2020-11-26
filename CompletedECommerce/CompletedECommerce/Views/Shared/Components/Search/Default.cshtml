@@ -5,7 +5,7 @@
 }
 
 <form class="form-inline navbar-search" method="get" asp-controller="Product" asp-action="SearchProductByName">
-    <input id="srchFld" class="srchTxt" name="productName" type="text" required="required">
+    <input id="srchFld" class="srchTxt" name="productName" type="text">
     <select asp-items="@Model" class="srchTxt">
         <option value="">Select Category</option>         
     </select>

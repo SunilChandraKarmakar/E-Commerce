@@ -1,0 +1,97 @@
+﻿@using Models;
+@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "SearchProductByPrice";
+    Layout = "~/Views/Shared/_ClinteLayout.cshtml";
+}
+
+<div class="span9">
+    <ul class="breadcrumb">
+        <li><a asp-controller="Home" asp-action="Index">Home</a> <span class="divider">/</span></li>
+        <li class="active">Products List</li>
+    </ul>
+    <h3>Search Products List<small class="pull-right"> @Model.Count() products are available </small></h3>
+    <hr class="soft">
+    <form class="form-horizontal span6">
+        <div class="control-group">
+            <label class="control-label alignL">Sort By </label>
+            <select>
+                <option>Priduct name A - Z</option>
+                <option>Priduct name Z - A</option>
+                <option>Priduct Stoke</option>
+                <option>Price Lowest first</option>
+            </select>
+        </div>
+    </form>
+
+    <div id="myTab" class="pull-right">
+        <a href="#listView" data-toggle="tab"><span class="btn btn-large"><i class="icon-list"></i></span></a>
+        <a href="#blockView" data-toggle="tab"><span class="btn btn-large btn-primary"><i class="icon-th-large"></i></span></a>
+    </div>
+    <br class="clr">
+    <div class="tab-content">
+        <div class="tab-pane" id="listView">
+            <div class="row">
+                @foreach (Product searchProduct in Model)
+                {
+                    ProductPhoto aProductPhoto = searchProduct.ProductPhotos
+                                                            .Where(ph => ph.Featured == true).FirstOrDefault();
+                    string productPhotoName = aProductPhoto == null ? "SlideShow/NoImageFound.png" : aProductPhoto.Photo;
+
+                    <div class="span2">
+                        <img src="~/@productPhotoName" alt="">
+                    </div>
+                    <div class="span4">
+                        <h3>New | Available</h3>
+                        <hr class="soft">
+                        <h5>@searchProduct.Name </h5>
+                        <p>@searchProduct.Description</p>
+                        <a class="btn btn-small pull-right" asp-controller="Product" asp-action="ProductDetails" asp-route-id="@searchProduct.Id">View Details</a>
+                        <br class="clr">
+                    </div>
+                    <div class="span3 alignR">
+                        <form class="form-horizontal qtyFrm">
+                            <h3> $@searchProduct.Price</h3>
+                            <label class="checkbox">
+                                <input type="checkbox">  Adds product to compair
+                            </label><br>
+
+                            <a asp-controller="Cart" asp-action="AddProduct" asp-route-id="@searchProduct.Id" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
+                            <a asp-controller="Cart" asp-action="AddProduct" asp-route-id="@searchProduct.Id" class="btn btn-large"><i class="icon-zoom-in"></i></a>
+
+                        </form>
+                    </div>
+                }
+            </div>
+            <hr class="soft">
+        </div>
+
+        <div class="tab-pane  active" id="blockView">
+            <ul class="thumbnails">
+                @foreach (Product searchProduct in Model)
+                {
+                    ProductPhoto aProductPhoto = searchProduct.ProductPhotos
+                                                            .Where(ph => ph.Featured == true).FirstOrDefault();
+                    string productPhotoName = aProductPhoto == null ? "SlideShow/NoImageFound.png" : aProductPhoto.Photo;
+
+                    <li class="span3">
+                        <div class="thumbnail">
+                            <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@searchProduct.Id"><img src="~/@productPhotoName" alt=""></a>
+                            <div class="caption">
+                                <h5>@searchProduct.Name</h5>
+                                <h4 style="text-align:center">
+                                    <a class="btn" asp-controller="Product" asp-action="ProductDetails" asp-route-id="@searchProduct.Id"><i class="icon-zoom-in"></i></a>
+                                    <a class="btn" asp-controller="Cart" asp-action="AddProduct" asp-route-id="@searchProduct.Id">Add to <i class="icon-shopping-cart"></i></a>
+                                    <a class="btn btn-primary" href="#">€@searchProduct.Price</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+            <hr class="soft">
+        </div>
+    </div>
+</div>
+

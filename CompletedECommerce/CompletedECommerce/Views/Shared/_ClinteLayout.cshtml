@@ -16,6 +16,7 @@
     <!-- Bootstrap style responsive -->
     <link href="~/themes/css/bootstrap-responsive.min.css" rel="stylesheet" />
     <link href="~/themes/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="~/css/site.css" rel="stylesheet" />
 
     <!-- Google-code-prettify -->
     <link href="~/themes/js/google-code-prettify/prettify.css" rel="stylesheet" />
@@ -66,13 +67,26 @@
                 <!-- Sidebar ================================================== -->
                 <div id="sidebar" class="span3">
                     <div class="well well-small">
+                        <form method="get" asp-controller="Product" asp-action="SearchProductByPrice">
+                            <h5 id="pricelevelsearch">Search Product By Price</h5>
+                            <hr />
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="number" name="startingPrice" class="form-control" placeholder="Starting Price" required="required">
+                                </div>
+                                <div class="col">
+                                    <input type="number" name="endingPrice" class="form-control" placeholder="Ending Price" required="required">
+                                </div>
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="productsearchbtn" value="Search Product" />
+                        </form>
+                    </div>
+                    <div class="well well-small">
                         @await Component.InvokeAsync("CartLeft")
                     </div>
                     @await Component.InvokeAsync("Category")
                     <br />
-
                     @await Component.InvokeAsync("Product")
-
                     <div class="thumbnail">
                         <img src="~/themes/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
                         <div class="caption">

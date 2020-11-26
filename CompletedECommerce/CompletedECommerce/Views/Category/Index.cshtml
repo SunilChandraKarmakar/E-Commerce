@@ -36,9 +36,9 @@
                                     <td>@(category.Categorye == null ? " " : category.Categorye.Name)</td>
                                     <td>@(category.Status == true ? "Show" : "Hide")</td>
                                     <td>
-                                        <a asp-action="EditCategory" asp-route-id="@category.Id">Edit</a> |
+                                        <a asp-action="EditCategory" asp-route-id="@category.Id" class="btn btn-info">Edit</a> |
                                         <a asp-action="DeleteCategory" asp-route-id="@category.Id" onclick="return confirm('Are you sure?')">@(category.Categorye == null & category.Categories.Count() > 0 ? "" : "Delete | ")</a>
-                                        <a asp-controller="Category" asp-action="AddSubCategory" asp-route-id="@category.Id">Add Sub Category</a>
+                                        <a asp-controller="Category" asp-action="AddSubCategory" class="btn btn-success" asp-route-id="@category.Id">Add Sub Category</a>
                                     </td>
                                 </tr>
                                 @foreach (Category subCategory in category.Categories)
@@ -49,8 +49,8 @@
                                         <td>@subCategory.Categorye.Name</td>
                                         <td>@(subCategory.Status == true ? "Show" : "Hide")</td>
                                         <td>
-                                            <a asp-action="EditCategory" asp-route-id="@subCategory.Id">Edit</a> |
-                                            <a asp-action="DeleteCategory" asp-route-id="@subCategory.Id" onclick="return confirm('Are you sure?')">Delete</a>
+                                            <a asp-action="EditCategory" asp-route-id="@subCategory.Id" class="btn btn-info">Edit</a> |
+                                            <a asp-action="DeleteCategory" asp-route-id="@subCategory.Id" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
                                 }

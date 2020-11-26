@@ -7,6 +7,12 @@ namespace Models
 {
     public class Product
     {
+        public Product()
+        {
+            this.ProductPhotos = new HashSet<ProductPhoto>();
+            this.InvoiceDetails = new HashSet<InvoiceDetails>();
+        }
+
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Provied product name.")]

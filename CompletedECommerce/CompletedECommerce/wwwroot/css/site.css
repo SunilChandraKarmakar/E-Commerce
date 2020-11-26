@@ -58,9 +58,16 @@ html {
   min-height: 100%;
 }
 
+#pricelevelsearch {
+    text-align: center;
+    font-size: 17px;
+}
+#productsearchbtn {
+    display: block;
+}
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 .footer {
   position: absolute;

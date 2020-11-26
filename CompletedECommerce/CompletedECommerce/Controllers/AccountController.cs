@@ -102,7 +102,7 @@ namespace CompletedECommerce.Controllers
                 bool isSaveRoleAccount = _iRoleAccountManager.Add(initialRoleAccount);
 
                 if(isSaveAccount == true && isSaveRoleAccount == true)
-                    return RedirectToAction("Index", "Login");
+                    return RedirectToAction("Index", "Home");
                 else
                 {
                     ViewBag.ErrorMessage = "Registration has been failed! Try again.";
