@@ -4,8 +4,8 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ICollection<InvoiceDetails> invoiceDetailsList = ViewBag.InvoiceDetailsList;
 }
-
 
 <section class="content-header">
     <h1>
@@ -32,14 +32,27 @@
                         <tbody>
                             @foreach (Product product in Model)
                             {
+                                int sellProduct = 0;
+                                ICollection<InvoiceDetails> getInvoiveDetailsListBySelectedProduct = invoiceDetailsList
+                                                    .Where(idl => idl.ProductId == product.Id).ToList();
+
+                                foreach (InvoiceDetails singleInvoice in getInvoiveDetailsListBySelectedProduct)
+                                {
+                                    sellProduct = singleInvoice.Quantity + sellProduct;
+                                }
+
+                                int totalProduct = product.Quantity - sellProduct;
+
                                 <tr>
                                     <td>
                                         Name : @product.Name <br />
                                         Category : @product.Category.Name <br />
                                     </td>
                                     <td>
-                                        Price : @product.Price <br />
-                                        Quantity : @product.Quantity <br />
+                                        Price : <span class="badge bg-green">@product.Price</span> <br />
+                                        Quantity : <span class="badge bg-light-blue">@product.Quantity</span>
+                                        Sell : <span class="badge bg-yellow">@sellProduct</span> <br />
+                                        Total : <span class="badge bg-red">@totalProduct</span>                                     
                                     </td>
                                     <td>
                                         Details : @product.Details <br />

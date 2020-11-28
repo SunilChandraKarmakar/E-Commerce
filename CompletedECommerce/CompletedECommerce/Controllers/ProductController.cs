@@ -15,21 +15,27 @@ namespace CompletedECommerce.Controllers
     {
         private readonly IProductManager _iProductManager;
         private readonly ICategoryManager _iCategoryManager;
-        private readonly IProductPhotoManager _iProductPhotoManager; 
+        private readonly IProductPhotoManager _iProductPhotoManager;
+        private readonly IInvoiceDetailsManager _invoiceDetailsManager;
 
         public ProductController(IProductManager iProductManager, ICategoryManager iCategoryManager,
-                                IProductPhotoManager iProductPhotoManager)
+                                IProductPhotoManager iProductPhotoManager, IInvoiceDetailsManager invoiceDetailsManager)
         {
             _iProductManager = iProductManager;
             _iCategoryManager = iCategoryManager;
             _iProductPhotoManager = iProductPhotoManager;
+            _invoiceDetailsManager = invoiceDetailsManager;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
             if(HttpContext.Session.GetString("AdminId") != null)
+            {
+                ViewBag.InvoiceDetailsList = _invoiceDetailsManager.GetAll();
                 return View(_iProductManager.GetAll());
+            }
+                
 
             return RedirectToAction("Index", "Login");
         }
