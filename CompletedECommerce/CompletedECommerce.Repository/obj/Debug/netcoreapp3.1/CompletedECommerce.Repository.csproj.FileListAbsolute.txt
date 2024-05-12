@@ -12,3 +12,19 @@ F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECom
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\bin\Debug\netcoreapp3.1\Models.pdb
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.csprojAssemblyReference.cache
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.csproj.CopyComplete
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\bin\Debug\netcoreapp3.1\CompletedECommerce.Repository.deps.json
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\bin\Debug\netcoreapp3.1\CompletedECommerce.Repository.dll
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\bin\Debug\netcoreapp3.1\CompletedECommerce.Repository.pdb
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.dll
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\bin\Debug\netcoreapp3.1\Models.dll
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.pdb
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\bin\Debug\netcoreapp3.1\Models.pdb
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.AssemblyInfoInputs.cache
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.AssemblyInfo.cs
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.csproj.CoreCompileInputs.cache
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.dll
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.pdb
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.csproj.AssemblyReference.cache
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\CompletedECommerce.Repository.sourcelink.json
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Repository\obj\Debug\netcoreapp3.1\Complete.633C1782.Up2Date

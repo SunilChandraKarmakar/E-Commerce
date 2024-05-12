@@ -13,3 +13,20 @@ F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECom
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.runtimeconfig.dev.json
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.genruntimeconfig.cache
 F:\C# Project\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.csproj.CoreCompileInputs.cache
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.deps.json
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.runtimeconfig.json
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.runtimeconfig.dev.json
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.dll
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\bin\Debug\netcoreapp3.1\CompletedECommerce.Databse.pdb
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\bin\Debug\netcoreapp3.1\Models.dll
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\bin\Debug\netcoreapp3.1\Models.pdb
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.AssemblyInfoInputs.cache
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.AssemblyInfo.cs
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.csproj.CoreCompileInputs.cache
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.dll
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.pdb
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.genruntimeconfig.cache
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.csproj.AssemblyReference.cache
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\CompletedECommerce.Databse.sourcelink.json
+D:\C# - Work\Web Application - CORE\E-Commerce\CompletedECommerce\CompletedECommerce.Databse\obj\Debug\netcoreapp3.1\Complete.60524CED.Up2Date
